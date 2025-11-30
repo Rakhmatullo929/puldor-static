@@ -63,28 +63,28 @@ export const uz: Translations = {
     subtitle: 'AI yadrosidan ingliz tilida pitch qilishgacha bo\'lgan mahsulotni qamrab olgan to\'rt kishi',
     members: {
       member1: {
-        name: 'A\'zo 1',
-        title: 'Backend / Texnik rahbar',
+        name: 'Azizov Rakhmatullo',
+        title: 'Full-stack',
         description:
           'API va tizim arxitekturasini loyihalash. Yuqori yuklanishli tizimlar bilan ishlash tajribasi, Telegram Bot API va to\'lov tizimlari bilan integratsiya. Backendning masshtablanuvchanligi va ishonchliligini ta\'minlaydi.',
       },
       member2: {
-        name: 'A\'zo 2',
+        name: 'Muhammad Chariev',
         title: 'AI / ML muhandisi',
         description:
           'Ovozli xabarlar va matnni qayta ishlash uchun AI pipeline-larini ishlab chiqish. Tranzaksiyalarni tasniflash, ob\'yektlarni ajratib olish (summalar, toifalar, sanalar). Whisper va GPT-4.x bilan integratsiya.',
       },
       member3: {
-        name: 'A\'zo 3',
+        name: 'Nematullo Irgashev',
         title: 'Backend muhandisi (Mahsulot xususiyatlari)',
         description:
           'Mahsulot xususiyatlarini ishlab chiqish: maqsadlar, qarzlar, xarajatlar tahlili. Ma\'lumotlar bazasi so\'rovlarini optimallashtirish, fon vazifalari uchun Celery bilan ishlash, tashqi API-lar bilan integratsiya.',
       },
       member4: {
-        name: 'A\'zo 4',
-        title: 'Native-speaker / Pitch va Mahsulot',
+        name: 'Muhammad Annas',
+        title: 'Product Manager',
         description:
-          'IELTS 8.5. Loyihani pitch qilish, mahsulot mantiqi va ingliz tilidagi UX matnlariga javobgar. Tanlov hakamlar hay\'ati va ingliz tilida so\'zlashuvchi foydalanuvchilar bilan muloqot.',
+          'Loyihani pitch qilish, mahsulot mantiqi va ingliz tilidagi UX matnlariga javobgar. Tanlov hakamlar hay\'ati va ingliz tilida so\'zlashuvchi foydalanuvchilar bilan muloqot.',
       },
     },
     links: {

@@ -63,28 +63,28 @@ export const en: Translations = {
     subtitle: 'Four people covering the product from AI core to English pitching',
     members: {
       member1: {
-        name: 'Member 1',
-        title: 'Backend / Tech Lead',
+        name: 'Rakhmatullo Azizov',
+        title: 'Full-stack',
         description:
           'API and system architecture design. Experience with high-load systems, integration with Telegram Bot API and payment systems. Ensures backend scalability and reliability.',
       },
       member2: {
-        name: 'Member 2',
+        name: 'Muhammad Chariev',
         title: 'AI / ML Engineer',
         description:
           'Development of AI pipelines for processing voice messages and text. Transaction classification, entity extraction (amounts, categories, dates). Integration with Whisper and GPT-4.x.',
       },
       member3: {
-        name: 'Member 3',
+        name: 'Nematullo Irgashev',
         title: 'Backend Engineer (Product features)',
         description:
           'Development of product features: goals, debts, expense analytics. Database query optimization, work with Celery for background tasks, integrations with external APIs.',
       },
       member4: {
-        name: 'Member 4',
-        title: 'Native-speaker / Pitch & Product',
+        name: 'Muhammad Annas',
+        title: 'Product Manager',
         description:
-          'IELTS 8.5. Responsible for project pitching, product logic, and UX texts in English. Communication with competition jury and English-speaking users.',
+          'Responsible for project pitching, product logic, and UX texts in English. Communication with competition jury and English-speaking users.',
       },
     },
     links: {

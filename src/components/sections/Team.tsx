@@ -1,5 +1,11 @@
-import React from 'react';
-import { useI18n } from '../../i18n/I18nContext';
+import React from "react";
+import { useI18n } from "../../i18n/I18nContext";
+
+// Import team member photos
+import rakhmatulloPhoto from "../../assets/images/team/rakhmatullo.jpg";
+import mukhammadPhoto from "../../assets/images/team/mukhammad.jpg";
+import nematulloPhoto from "../../assets/images/team/nematullo.jpg";
+import annasPhoto from "../../assets/images/team/annas.png";
 
 /**
  * Team section component.
@@ -8,30 +14,70 @@ import { useI18n } from '../../i18n/I18nContext';
 const Team: React.FC = () => {
   const { t } = useI18n();
 
-  const teamMembers = [
+  const teamMembers: Array<{
+    name: string;
+    title: string;
+    description: string;
+    techStack: string[];
+    photo?: string;
+  }> = [
     {
       name: t.team.members.member1.name,
       title: t.team.members.member1.title,
       description: t.team.members.member1.description,
-      techStack: ['Python', 'FastAPI', 'Django', 'PostgreSQL', 'Redis', 'Docker', 'CI/CD', 'Telegram Bot API'],
+      techStack: [
+        "Python",
+        "FastAPI",
+        "Django",
+        "PostgreSQL",
+        "Redis",
+        "Docker",
+        "CI/CD",
+        "Telegram Bot API",
+      ],
+      photo: rakhmatulloPhoto,
     },
     {
       name: t.team.members.member2.name,
       title: t.team.members.member2.title,
       description: t.team.members.member2.description,
-      techStack: ['Python', 'PyTorch', 'Transformers', 'OpenAI API', 'Whisper', 'GPT-4.x', 'NLP', 'NLU'],
+      techStack: [
+        "Python",
+        "PyTorch",
+        "Transformers",
+        "OpenAI API",
+        "Whisper",
+        "GPT-4.x",
+        "NLP",
+        "NLU",
+      ],
+      photo: mukhammadPhoto,
     },
     {
       name: t.team.members.member3.name,
       title: t.team.members.member3.title,
       description: t.team.members.member3.description,
-      techStack: ['Python', 'Django', 'FastAPI', 'SQL', 'Celery', 'External APIs'],
+      techStack: [
+        "Python",
+        "Django",
+        "FastAPI",
+        "SQL",
+        "Celery",
+        "External APIs",
+      ],
+      photo: nematulloPhoto,
     },
     {
       name: t.team.members.member4.name,
       title: t.team.members.member4.title,
       description: t.team.members.member4.description,
-      techStack: ['English (IELTS 8.5)', 'Product Strategy', 'UX Writing', 'Pitching'],
+      techStack: [
+        "English (IELTS 8.5)",
+        "Product Strategy",
+        "UX Writing",
+        "Pitching",
+      ],
+      photo: annasPhoto,
     },
   ];
 
@@ -58,6 +104,17 @@ const Team: React.FC = () => {
               key={index}
               className="bg-slate-900/60 border border-gray-800 rounded-2xl p-6 shadow-sm hover:-translate-y-[4px] hover:shadow-lg hover:bg-slate-900/70 transition-all duration-300"
             >
+              {/* Photo */}
+              {member.photo && (
+                <div className="mb-4 flex justify-center">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-gray-700 shadow-md"
+                  />
+                </div>
+              )}
+
               {/* Name and Title */}
               <div className="mb-4">
                 <h3 className="text-xl font-bold text-white mb-1">
@@ -74,7 +131,7 @@ const Team: React.FC = () => {
               </p>
 
               {/* Tech Stack Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2">
                 {member.techStack.map((tech, techIndex) => (
                   <span
                     key={techIndex}
@@ -83,26 +140,6 @@ const Team: React.FC = () => {
                     {tech}
                   </span>
                 ))}
-              </div>
-
-              {/* Links */}
-              <div className="pt-4 border-t border-gray-800">
-                <div className="flex flex-col gap-2 text-sm">
-                  <a
-                    href="#"
-                    className="text-accent-blue hover:text-accent-green transition-colors duration-200"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    {t.team.links.linkedin}
-                  </a>
-                  <a
-                    href="#"
-                    className="text-accent-blue hover:text-accent-green transition-colors duration-200"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    {t.team.links.github}
-                  </a>
-                </div>
               </div>
             </div>
           ))}
