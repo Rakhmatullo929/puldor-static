@@ -1,10 +1,14 @@
 import React from 'react';
+import { useI18n } from '../../i18n/I18nContext';
+import LanguageSwitcher from './LanguageSwitcher';
 
 /**
  * Header component with navigation and logo.
  * Features sticky positioning and smooth scroll navigation.
  */
 const Header: React.FC = () => {
+  const { t } = useI18n();
+
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -29,41 +33,42 @@ const Header: React.FC = () => {
               onClick={() => scrollToSection('problem-solution')}
               className="px-3 lg:px-4 py-2 text-sm lg:text-base text-text-light hover:text-accent-green transition-colors duration-200"
             >
-              Problem → Solution
+              {t.header.nav.problemSolution}
             </button>
             <button
               onClick={() => scrollToSection('team')}
               className="px-3 lg:px-4 py-2 text-sm lg:text-base text-text-light hover:text-accent-green transition-colors duration-200"
             >
-              Team
+              {t.header.nav.team}
             </button>
             <button
               onClick={() => scrollToSection('why-us')}
               className="px-3 lg:px-4 py-2 text-sm lg:text-base text-text-light hover:text-accent-green transition-colors duration-200"
             >
-              Why us
+              {t.header.nav.whyUs}
             </button>
             <button
               onClick={() => scrollToSection('roadmap')}
               className="px-3 lg:px-4 py-2 text-sm lg:text-base text-text-light hover:text-accent-green transition-colors duration-200"
             >
-              Roadmap
+              {t.header.nav.roadmap}
             </button>
             <button
               onClick={() => scrollToSection('implementation')}
               className="px-3 lg:px-4 py-2 text-sm lg:text-base text-text-light hover:text-accent-green transition-colors duration-200"
             >
-              How we build
+              {t.header.nav.howWeBuild}
             </button>
           </div>
 
-          {/* CTA Button */}
-          <div className="flex items-center">
+          {/* Language Switcher and CTA Button */}
+          <div className="flex items-center gap-3">
+            <LanguageSwitcher />
             <button
               onClick={() => scrollToSection('hero')}
               className="px-4 py-2 text-sm md:text-base font-medium bg-accent-green text-dark-bg rounded-lg hover:bg-green-500 transition-colors duration-200"
             >
-              Try in Telegram
+              {t.header.cta}
             </button>
           </div>
         </div>

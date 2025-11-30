@@ -1,4 +1,5 @@
 import React from 'react';
+import { useI18n } from '../../i18n/I18nContext';
 
 /**
  * Why Us section component.
@@ -6,30 +7,32 @@ import React from 'react';
  * Features two-column layout: text block on the left, reason cards on the right.
  */
 const WhyUs: React.FC = () => {
+  const { t } = useI18n();
+
   const reasons = [
     {
-      title: 'Уже есть боевой опыт подобного бота',
-      description: '6+ месяцев разработки и доработки прототипа бота для учёта расходов. Сейчас создаём более чистую и масштабируемую версию.',
+      title: t.whyUs.reasons.reason1.title,
+      description: t.whyUs.reasons.reason1.description,
     },
     {
-      title: 'Сильный AI/ML и NLU для естественной речи',
-      description: 'Опыт работы с Whisper, GPT-4.x и кастомными моделями для понимания естественного языка в контексте финансов.',
+      title: t.whyUs.reasons.reason2.title,
+      description: t.whyUs.reasons.reason2.description,
     },
     {
-      title: 'Production-опыт с Telegram Bot API',
-      description: 'Реальные боты в продакшене, интеграции с внешними API (AI-модели, платёжные провайдеры, хранилища).',
+      title: t.whyUs.reasons.reason3.title,
+      description: t.whyUs.reasons.reason3.description,
     },
     {
-      title: 'Глубокое знание RU / UZ / EN контекста',
-      description: 'Понимаем особенности финансовой культуры и языковые смеси в регионе. Бот работает с реальными пользовательскими данными.',
+      title: t.whyUs.reasons.reason4.title,
+      description: t.whyUs.reasons.reason4.description,
     },
     {
-      title: 'Чёткий фокус на полезной аналитике',
-      description: 'Не просто графики, а персональные подсказки и советы, основанные на реальной истории трат пользователя.',
+      title: t.whyUs.reasons.reason5.title,
+      description: t.whyUs.reasons.reason5.description,
     },
     {
-      title: 'Умение дробить продукт на roadmap',
-      description: 'Опыт разбиения сложных продуктов на реалистичные этапы и доведения их до релиза с измеримыми результатами.',
+      title: t.whyUs.reasons.reason6.title,
+      description: t.whyUs.reasons.reason6.description,
     },
   ];
 
@@ -42,11 +45,10 @@ const WhyUs: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Почему именно наша команда решит эту задачу
+            {t.whyUs.title}
           </h2>
           <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
-            У нас есть не только технические навыки, но и глубокое понимание проблемы, 
-            опыт работы с похожим продуктом и чёткий план реализации.
+            {t.whyUs.subtitle}
           </p>
         </div>
 
@@ -56,23 +58,13 @@ const WhyUs: React.FC = () => {
           <div className="space-y-6">
             <div className="bg-dark-bg-alt border border-gray-800 rounded-xl p-6 md:p-8 hover:bg-slate-900/70 transition-all duration-300">
               <p className="text-text-light text-base md:text-lg leading-relaxed mb-4">
-                Мы уже разрабатывали прототип бота для учёта расходов более 6 месяцев. 
-                За это время мы прошли путь от идеи до работающего продукта, получили 
-                обратную связь от пользователей и поняли, что нужно улучшить. Сейчас мы 
-                создаём более чистую и масштабируемую версию, используя накопленный опыт.
+                {t.whyUs.description.paragraph1}
               </p>
               <p className="text-text-light text-base md:text-lg leading-relaxed mb-4">
-                В команде собраны ключевые компетенции: сильный backend-разработчик с опытом 
-                работы с high-load системами, ML-инженер, специализирующийся на NLP и NLU, 
-                и человек с IELTS 8.5, который отвечает за питчинг и продуктовую логику. 
-                Это сочетание позволяет нам закрыть все аспекты продукта — от технической 
-                реализации до коммуникации с жюри конкурса.
+                {t.whyUs.description.paragraph2}
               </p>
               <p className="text-text-light text-base md:text-lg leading-relaxed">
-                Мы хорошо понимаем локальный контекст: смесь русского, узбекского и английского 
-                языков в одном чате, особенности финансовой культуры в регионе, реальные боли 
-                пользователей. Это не абстрактная идея — мы знаем, с какими проблемами сталкиваются 
-                люди, потому что уже работали с ними напрямую.
+                {t.whyUs.description.paragraph3}
               </p>
             </div>
           </div>

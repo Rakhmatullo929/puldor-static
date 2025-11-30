@@ -194,26 +194,26 @@ export const ru: Translations = {
       interface: {
         title: 'Интерфейс',
         items: [
-          'Telegram Bot API — основной интерфейс взаимодействия',
-          'Web-интерфейс (React) — landing и будущая панель управления',
+          '<strong>Telegram Bot API</strong> — основной интерфейс взаимодействия',
+          '<strong>Web-интерфейс</strong> (React) — landing и будущая панель управления',
           'Голосовой и текстовый ввод',
         ],
       },
       backend: {
         title: 'Backend & Data',
         items: [
-          'Python — FastAPI или Django',
-          'PostgreSQL — основное хранилище данных',
-          'Redis — кэширование и очереди',
-          'Celery — фоновые задачи',
+          '<strong>Python</strong> — FastAPI или Django',
+          '<strong>PostgreSQL</strong> — основное хранилище данных',
+          '<strong>Redis</strong> — кэширование и очереди',
+          '<strong>Celery</strong> — фоновые задачи',
         ],
       },
       ai: {
         title: 'AI слой',
         items: [
-          'Whisper API — распознавание речи (STT)',
-          'GPT-4.x — определение intent и извлечение данных',
-          'NLU/NLP — категоризация и анализ',
+          '<strong>Whisper API</strong> — распознавание речи (STT)',
+          '<strong>GPT-4.x</strong> — определение intent и извлечение данных',
+          '<strong>NLU/NLP</strong> — категоризация и анализ',
           'Генерация персональных советов',
         ],
       },

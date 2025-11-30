@@ -1,4 +1,5 @@
 import React from 'react';
+import { useI18n } from '../../i18n/I18nContext';
 
 /**
  * Roadmap section component.
@@ -6,54 +7,36 @@ import React from 'react';
  * Features responsive timeline design: vertical on mobile, horizontal on desktop.
  */
 const Roadmap: React.FC = () => {
+  const { t } = useI18n();
+
   const stages = [
     {
       id: 'idea',
-      title: 'Idea',
-      subtitle: 'Формализация концепции и технического стека',
-      status: 'current',
-      items: [
-        'Формализация проблемы и функционала',
-        'Дизайн UX-флоу для Telegram бота',
-        'Определение AI-стека: Whisper для голоса, GPT-4.x / подобная LLM для intents и извлечения сущностей',
-      ],
+      title: t.roadmap.stages.idea.title,
+      subtitle: t.roadmap.stages.idea.subtitle,
+      status: 'current' as const,
+      items: t.roadmap.stages.idea.items,
     },
     {
       id: 'prototype',
-      title: 'Prototype',
-      subtitle: 'Работающий бот для базового учёта расходов и доходов',
-      status: 'upcoming',
-      items: [
-        'Работающий Telegram-бот для голосового и текстового ввода расходов/доходов',
-        'Базовые категории и простой отчёт за неделю/месяц в текстовом виде',
-        'Хранение данных в PostgreSQL',
-        'Простая логика целей и долгов (вручную помечаем транзакции)',
-      ],
+      title: t.roadmap.stages.prototype.title,
+      subtitle: t.roadmap.stages.prototype.subtitle,
+      status: 'upcoming' as const,
+      items: t.roadmap.stages.prototype.items,
     },
     {
       id: 'mvp',
-      title: 'MVP',
-      subtitle: 'Умная классификация, цели, долги и мультиязычность',
-      status: 'upcoming',
-      items: [
-        'Умная классификация категорий (AI-модель + тонкая дообучаемость)',
-        'Полноценные цели (копилки), долги, напоминания',
-        'Ежемесячные отчёты + советы, где можно тратить меньше (на основе истории)',
-        'Поддержка трёх языков одновременно в одном чате',
-        'Базовая панель администрирования (для команды)',
-      ],
+      title: t.roadmap.stages.mvp.title,
+      subtitle: t.roadmap.stages.mvp.subtitle,
+      status: 'upcoming' as const,
+      items: t.roadmap.stages.mvp.items,
     },
     {
       id: 'launched',
-      title: 'Launched',
-      subtitle: 'Production-ready продукт с масштабированием и монетизацией',
-      status: 'upcoming',
-      items: [
-        'Масштабирование инфраструктуры (Docker, orchestrator, мониторинг)',
-        'Улучшение latency, оптимизация затрат на AI',
-        'Настройка платёжной модели (freemium / подписка)',
-        'Расширение AI-подсказок и персонализированных рекомендаций',
-      ],
+      title: t.roadmap.stages.launched.title,
+      subtitle: t.roadmap.stages.launched.subtitle,
+      status: 'upcoming' as const,
+      items: t.roadmap.stages.launched.items,
     },
   ];
 
@@ -66,10 +49,10 @@ const Roadmap: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Дорожная карта
+            {t.roadmap.title}
           </h2>
           <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
-            Мы идём от идеи к боевому продукту, поэтапно добавляя функционал и улучшая пользовательский опыт.
+            {t.roadmap.subtitle}
           </p>
         </div>
 
@@ -135,7 +118,7 @@ const Roadmap: React.FC = () => {
                         </h3>
                         {isCurrent && (
                           <span className="px-2 py-1 text-xs font-semibold bg-accent-green/20 text-accent-green rounded-full">
-                            Сейчас
+                            {t.roadmap.current}
                           </span>
                         )}
                       </div>

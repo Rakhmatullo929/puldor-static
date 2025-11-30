@@ -1,70 +1,43 @@
 import React from 'react';
+import { useI18n } from '../../i18n/I18nContext';
 
 /**
  * Implementation / How we build section component.
  * Explains the technical implementation approach, architecture, and development sprints.
  */
 const Implementation: React.FC = () => {
+  const { t } = useI18n();
+
   const sprints = [
     {
       number: 1,
-      title: 'Sprint 1: Базовый функционал',
-      goal: 'Базовый Telegram-бот с текстовым вводом расходов и доходов',
-      tasks: [
-        'Настройка Telegram Bot API',
-        'Backend на Python (FastAPI/Django)',
-        'PostgreSQL для хранения транзакций',
-        'Обработка текстовых команд (расход/доход)',
-        'Базовая структура БД и API',
-      ],
+      title: t.implementation.sprints.sprint1.title,
+      goal: t.implementation.sprints.sprint1.goal,
+      tasks: t.implementation.sprints.sprint1.tasks,
     },
     {
       number: 2,
-      title: 'Sprint 2: Голосовой ввод',
-      goal: 'Добавление распознавания речи и автоматической категоризации',
-      tasks: [
-        'Интеграция Whisper API для распознавания речи',
-        'Обработка голосовых сообщений',
-        'Простая категоризация транзакций (LLM)',
-        'Извлечение суммы, валюты, даты из текста',
-        'Поддержка RU/UZ/EN языков',
-      ],
+      title: t.implementation.sprints.sprint2.title,
+      goal: t.implementation.sprints.sprint2.goal,
+      tasks: t.implementation.sprints.sprint2.tasks,
     },
     {
       number: 3,
-      title: 'Sprint 3: Цели и долги',
-      goal: 'Расширение функционала: цели, долги, напоминания',
-      tasks: [
-        'Система финансовых целей',
-        'Учёт долгов (кредиты, займы)',
-        'Напоминания и уведомления',
-        'Расчёт прогресса по целям',
-        'Интеграция с транзакциями',
-      ],
+      title: t.implementation.sprints.sprint3.title,
+      goal: t.implementation.sprints.sprint3.goal,
+      tasks: t.implementation.sprints.sprint3.tasks,
     },
     {
       number: 4,
-      title: 'Sprint 4: Аналитика и советы',
-      goal: 'AI-аналитика и персональные рекомендации на основе истории',
-      tasks: [
-        'Анализ истории трат (LLM-prompting)',
-        'Генерация персональных советов',
-        'Визуализация статистики',
-        'Выявление паттернов расходов',
-        'Рекомендации по экономии',
-      ],
+      title: t.implementation.sprints.sprint4.title,
+      goal: t.implementation.sprints.sprint4.goal,
+      tasks: t.implementation.sprints.sprint4.tasks,
     },
     {
       number: 5,
-      title: 'Sprint 5: Оптимизация и масштабирование',
-      goal: 'Оптимизация производительности и подготовка к масштабированию',
-      tasks: [
-        'Redis для кэширования',
-        'Celery для фоновых задач',
-        'Мониторинг и логирование',
-        'Оптимизация запросов к БД',
-        'Подготовка к production-развёртыванию',
-      ],
+      title: t.implementation.sprints.sprint5.title,
+      goal: t.implementation.sprints.sprint5.goal,
+      tasks: t.implementation.sprints.sprint5.tasks,
     },
   ];
 
@@ -77,17 +50,17 @@ const Implementation: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Как мы планируем реализовать решение
+            {t.implementation.title}
           </h2>
           <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
-            Поэтапная разработка с использованием современного стека технологий и AI-инструментов для создания умного финансового помощника.
+            {t.implementation.subtitle}
           </p>
         </div>
 
         {/* Architecture Section */}
         <div className="mb-16 md:mb-20">
           <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8 md:mb-12">
-            Техническая архитектура
+            {t.implementation.architecture.title}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {/* Interface Card */}
@@ -95,22 +68,16 @@ const Implementation: React.FC = () => {
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-3xl">🤖</span>
                 <h4 className="text-xl md:text-2xl font-bold text-accent-blue">
-                  Интерфейс
+                  {t.implementation.architecture.interface.title}
                 </h4>
               </div>
               <ul className="space-y-3 text-text-light text-sm md:text-base">
-                <li className="flex items-start gap-2">
-                  <span className="text-accent-blue mt-1">•</span>
-                  <span><strong>Telegram Bot API</strong> — основной интерфейс взаимодействия</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-accent-blue mt-1">•</span>
-                  <span><strong>Web-интерфейс</strong> (React) — landing и будущая панель управления</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-accent-blue mt-1">•</span>
-                  <span>Голосовой и текстовый ввод</span>
-                </li>
+                {t.implementation.architecture.interface.items.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-accent-blue mt-1">•</span>
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -119,26 +86,16 @@ const Implementation: React.FC = () => {
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-3xl">💾</span>
                 <h4 className="text-xl md:text-2xl font-bold text-accent-green">
-                  Backend & Data
+                  {t.implementation.architecture.backend.title}
                 </h4>
               </div>
               <ul className="space-y-3 text-text-light text-sm md:text-base">
-                <li className="flex items-start gap-2">
-                  <span className="text-accent-green mt-1">•</span>
-                  <span><strong>Python</strong> — FastAPI или Django</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-accent-green mt-1">•</span>
-                  <span><strong>PostgreSQL</strong> — основное хранилище данных</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-accent-green mt-1">•</span>
-                  <span><strong>Redis</strong> — кэширование и очереди</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-accent-green mt-1">•</span>
-                  <span><strong>Celery</strong> — фоновые задачи</span>
-                </li>
+                {t.implementation.architecture.backend.items.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-accent-green mt-1">•</span>
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -147,26 +104,16 @@ const Implementation: React.FC = () => {
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-3xl">🧠</span>
                 <h4 className="text-xl md:text-2xl font-bold text-purple-400">
-                  AI слой
+                  {t.implementation.architecture.ai.title}
                 </h4>
               </div>
               <ul className="space-y-3 text-text-light text-sm md:text-base">
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
-                  <span><strong>Whisper API</strong> — распознавание речи (STT)</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
-                  <span><strong>GPT-4.x</strong> — определение intent и извлечение данных</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
-                  <span><strong>NLU/NLP</strong> — категоризация и анализ</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-purple-400 mt-1">•</span>
-                  <span>Генерация персональных советов</span>
-                </li>
+                {t.implementation.architecture.ai.items.map((item, index) => (
+                  <li key={index} className="flex items-start gap-2">
+                    <span className="text-purple-400 mt-1">•</span>
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
@@ -175,7 +122,7 @@ const Implementation: React.FC = () => {
         {/* Sprints Section */}
         <div>
           <h3 className="text-2xl md:text-3xl font-bold text-white text-center mb-8 md:mb-12">
-            Поэтапный план реализации
+            {t.implementation.sprints.title}
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {sprints.map((sprint) => (

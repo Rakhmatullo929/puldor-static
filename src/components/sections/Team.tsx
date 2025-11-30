@@ -1,50 +1,37 @@
 import React from 'react';
+import { useI18n } from '../../i18n/I18nContext';
 
 /**
  * Team section component.
  * Displays team members with their roles, skills, tech stack, and links.
  */
 const Team: React.FC = () => {
+  const { t } = useI18n();
+
   const teamMembers = [
     {
-      name: 'Member 1',
-      title: 'Backend / Tech Lead',
-      description: 'Проектирование API и архитектуры системы. Опыт работы с high-load системами, интеграция с Telegram Bot API и платежными системами. Обеспечивает масштабируемость и надежность бэкенда.',
+      name: t.team.members.member1.name,
+      title: t.team.members.member1.title,
+      description: t.team.members.member1.description,
       techStack: ['Python', 'FastAPI', 'Django', 'PostgreSQL', 'Redis', 'Docker', 'CI/CD', 'Telegram Bot API'],
-      links: {
-        linkedin: 'LinkedIn (soon)',
-        github: 'GitHub (soon)',
-      },
     },
     {
-      name: 'Member 2',
-      title: 'AI / ML Engineer',
-      description: 'Разработка AI-пайплайнов для обработки голосовых сообщений и текста. Классификация транзакций, извлечение сущностей (суммы, категории, даты). Интеграция с Whisper и GPT-4.x.',
+      name: t.team.members.member2.name,
+      title: t.team.members.member2.title,
+      description: t.team.members.member2.description,
       techStack: ['Python', 'PyTorch', 'Transformers', 'OpenAI API', 'Whisper', 'GPT-4.x', 'NLP', 'NLU'],
-      links: {
-        linkedin: 'LinkedIn (soon)',
-        github: 'GitHub (soon)',
-      },
     },
     {
-      name: 'Member 3',
-      title: 'Backend Engineer (Product features)',
-      description: 'Разработка продуктовых фич: цели, долги, аналитика расходов. Оптимизация запросов к БД, работа с Celery для фоновых задач, интеграции с внешними API.',
+      name: t.team.members.member3.name,
+      title: t.team.members.member3.title,
+      description: t.team.members.member3.description,
       techStack: ['Python', 'Django', 'FastAPI', 'SQL', 'Celery', 'External APIs'],
-      links: {
-        linkedin: 'LinkedIn (soon)',
-        github: 'GitHub (soon)',
-      },
     },
     {
-      name: 'Member 4',
-      title: 'Native-speaker / Pitch & Product',
-      description: 'IELTS 8.5. Отвечает за питчинг проекта, продуктовую логику и UX-тексты на английском языке. Коммуникация с жюри конкурса и англоязычными пользователями.',
+      name: t.team.members.member4.name,
+      title: t.team.members.member4.title,
+      description: t.team.members.member4.description,
       techStack: ['English (IELTS 8.5)', 'Product Strategy', 'UX Writing', 'Pitching'],
-      links: {
-        linkedin: 'LinkedIn (soon)',
-        github: 'GitHub (soon)',
-      },
     },
   ];
 
@@ -57,10 +44,10 @@ const Team: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Команда
+            {t.team.title}
           </h2>
           <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
-            Четыре человека, закрывающие продукт от ИИ-ядра до питчинга на английском
+            {t.team.subtitle}
           </p>
         </div>
 
@@ -106,14 +93,14 @@ const Team: React.FC = () => {
                     className="text-accent-blue hover:text-accent-green transition-colors duration-200"
                     onClick={(e) => e.preventDefault()}
                   >
-                    {member.links.linkedin}
+                    {t.team.links.linkedin}
                   </a>
                   <a
                     href="#"
                     className="text-accent-blue hover:text-accent-green transition-colors duration-200"
                     onClick={(e) => e.preventDefault()}
                   >
-                    {member.links.github}
+                    {t.team.links.github}
                   </a>
                 </div>
               </div>

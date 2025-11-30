@@ -1,10 +1,13 @@
 import React from 'react';
+import { useI18n } from '../../i18n/I18nContext';
 
 /**
  * Hero section component - main landing section with primary CTA.
  * Features badge, title, subtitle, action buttons, stats cards, and demo illustration.
  */
 const Hero: React.FC = () => {
+  const { t } = useI18n();
+
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -24,20 +27,20 @@ const Hero: React.FC = () => {
             {/* Badge */}
             <div className="inline-flex items-center px-4 py-2 rounded-full bg-dark-bg-alt border border-gray-800 mb-6">
               <span className="text-sm text-text-light">
-                AI500 Demo · Voice → Insights
+                {t.hero.badge}
               </span>
             </div>
 
             {/* Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
               <span className="text-white">
-                Puldor — AI Telegram бот для умного учёта расходов
+                {t.hero.title}
               </span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-text-light mb-6 sm:mb-8 md:mb-12 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Просто скажи голосом, сколько и на что ты потратил — бот сам поймёт, разложит по категориям, учтёт доходы, цели, долги и подскажет, где ты можешь экономить.
+              {t.hero.subtitle}
             </p>
 
             {/* Buttons */}
@@ -46,13 +49,13 @@ const Hero: React.FC = () => {
                 onClick={() => scrollToSection('problem-solution')}
                 className="px-8 py-4 text-lg font-semibold bg-accent-green text-dark-bg rounded-lg hover:bg-green-500 transition-colors duration-200 w-full sm:w-auto"
               >
-                Посмотреть, как это работает
+                {t.hero.button1}
               </button>
               <button
                 onClick={() => scrollToSection('why-us')}
                 className="px-8 py-4 text-lg font-semibold border-2 border-accent-blue text-accent-blue rounded-lg hover:bg-accent-blue hover:text-dark-bg transition-colors duration-200 w-full sm:w-auto"
               >
-                Почему именно мы
+                {t.hero.button2}
               </button>
             </div>
 
@@ -60,17 +63,17 @@ const Hero: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0">
               <div className="bg-dark-bg-alt border border-gray-800 rounded-lg p-4 backdrop-blur-sm hover:-translate-y-[2px] hover:shadow-md transition-all duration-300">
                 <p className="text-sm md:text-base text-text-light font-medium">
-                  3 языка · RU / UZ / EN
+                  {t.hero.stats.languages}
                 </p>
               </div>
               <div className="bg-dark-bg-alt border border-gray-800 rounded-lg p-4 backdrop-blur-sm hover:-translate-y-[2px] hover:shadow-md transition-all duration-300">
                 <p className="text-sm md:text-base text-text-light font-medium">
-                  Голос → текст → категории
+                  {t.hero.stats.voiceToCategories}
                 </p>
               </div>
               <div className="bg-dark-bg-alt border border-gray-800 rounded-lg p-4 backdrop-blur-sm hover:-translate-y-[2px] hover:shadow-md transition-all duration-300">
                 <p className="text-sm md:text-base text-text-light font-medium">
-                  Цели, долги, аналитика
+                  {t.hero.stats.goalsAndAnalytics}
                 </p>
               </div>
             </div>
@@ -85,15 +88,15 @@ const Hero: React.FC = () => {
                     <div className="w-3 h-3 rounded-full bg-red-500"></div>
                     <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                     <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    <span className="text-text-light text-sm ml-2">Demo interface</span>
+                    <span className="text-text-light text-sm ml-2">{t.hero.demo.interface}</span>
                   </div>
                   <div className="bg-dark-bg-alt rounded-lg p-4 border border-gray-800">
-                    <p className="text-text-light text-sm mb-2">💬 Голосовое сообщение</p>
-                    <p className="text-accent-green text-xs">"Потратил 5000 сумов на обед"</p>
+                    <p className="text-text-light text-sm mb-2">{t.hero.demo.voiceMessage}</p>
+                    <p className="text-accent-green text-xs">{t.hero.demo.voiceExample}</p>
                   </div>
                   <div className="bg-dark-bg-alt rounded-lg p-4 border border-gray-800">
-                    <p className="text-text-light text-sm mb-2">✅ Автоматическая обработка</p>
-                    <p className="text-accent-blue text-xs">Категория: Еда · Сумма: 5000 UZS</p>
+                    <p className="text-text-light text-sm mb-2">{t.hero.demo.autoProcessing}</p>
+                    <p className="text-accent-blue text-xs">{t.hero.demo.categoryExample}</p>
                   </div>
                 </div>
               </div>
