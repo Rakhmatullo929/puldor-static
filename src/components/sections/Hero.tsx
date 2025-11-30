@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useI18n } from '../../i18n/I18nContext';
+import Logo from '../common/Logo';
 import { motion } from 'framer-motion';
 
 /**
@@ -59,11 +60,21 @@ const Hero: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Content */}
           <div className="text-center lg:text-left animate-fade-in">
+            {/* Logo - Large version */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="flex justify-center lg:justify-start mb-8"
+            >
+              <Logo variant="large" />
+            </motion.div>
+
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="inline-flex items-center px-5 py-2.5 rounded-full glass-card mb-6"
             >
               <span className="text-sm font-medium text-white relative z-10">

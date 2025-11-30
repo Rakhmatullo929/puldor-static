@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useI18n } from '../../i18n/I18nContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import Logo from '../common/Logo';
 import { motion, AnimatePresence } from 'framer-motion';
 
 /**
@@ -10,9 +11,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Header: React.FC = () => {
   const { t } = useI18n();
   const [activeSection, setActiveSection] = useState<string>('hero');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const scrollToSection = (sectionId: string): void => {
     setActiveSection(sectionId);
+    setIsMobileMenuOpen(false); // Закрываем мобильное меню
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -58,12 +61,13 @@ const Header: React.FC = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-nav shadow-lg">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-18 md:h-22">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl md:text-2xl font-bold text-gradient cursor-pointer hover:scale-105 transition-transform duration-200">
-              Puldor
-            </h1>
+            <Logo 
+              variant="default"
+              onClick={() => scrollToSection('hero')}
+            />
           </div>
 
           {/* Navigation Links */}
@@ -88,17 +92,20 @@ const Header: React.FC = () => {
                     <motion.div
                       layoutId="activeNav"
                       className="absolute inset-0 rounded-xl"
-                      initial={false}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.8 }}
                       transition={{
                         type: 'spring',
-                        stiffness: 500,
-                        damping: 30,
+                        stiffness: 300,
+                        damping: 25,
+                        opacity: { duration: 0.4, ease: 'easeInOut' },
                       }}
                       style={{
-                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%)',
-                        backdropFilter: 'blur(30px)',
-                        border: '1px solid rgba(255, 255, 255, 0.25)',
-                        boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.25), inset 0 -1px 0 0 rgba(255, 255, 255, 0.1)',
+                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%)',
+                        backdropFilter: 'blur(30px) saturate(200%)',
+                        border: '1px solid rgba(255, 255, 255, 0.3)',
+                        boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2)',
                       }}
                     />
                   )}
@@ -109,7 +116,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Language Switcher and CTA Button */}
-          <div className="flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-3">
             <LanguageSwitcher />
             <motion.button
               onClick={() => scrollToSection('hero')}
@@ -120,7 +127,89 @@ const Header: React.FC = () => {
               <span className="relative z-10">{t.header.cta}</span>
             </motion.button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center gap-3">
+            <LanguageSwitcher />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="glass-button w-10 h-10 flex items-center justify-center rounded-xl"
+              aria-label="Toggle menu"
+            >
+              <motion.div
+                animate={{ rotate: isMobileMenuOpen ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                {isMobileMenuOpen ? (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                )}
+              </motion.div>
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="md:hidden overflow-hidden"
+            >
+              <div className="glass-card-strong rounded-3xl mt-4 mb-4 p-4 space-y-2">
+                {[
+                  { id: 'problem-solution', label: t.header.nav.problemSolution },
+                  { id: 'interactive-demo', label: 'Демо' },
+                  { id: 'team', label: t.header.nav.team },
+                  { id: 'why-us', label: t.header.nav.whyUs },
+                  { id: 'roadmap', label: t.header.nav.roadmap },
+                  { id: 'implementation', label: t.header.nav.howWeBuild },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`glass-nav-button w-full px-4 py-3 text-base relative z-10 text-left rounded-xl ${
+                      activeSection === item.id ? 'active' : 'text-white/70'
+                    }`}
+                  >
+                    <AnimatePresence mode="wait">
+                      {activeSection === item.id && (
+                        <motion.div
+                          layoutId="activeMobileNav"
+                          className="absolute inset-0 rounded-xl"
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0, scale: 0.8 }}
+                          transition={{
+                            type: 'spring',
+                            stiffness: 300,
+                            damping: 25,
+                            opacity: { duration: 0.4, ease: 'easeInOut' },
+                          }}
+                          style={{
+                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%)',
+                            backdropFilter: 'blur(30px) saturate(200%)',
+                            border: '1px solid rgba(255, 255, 255, 0.3)',
+                            boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2)',
+                          }}
+                        />
+                      )}
+                    </AnimatePresence>
+                    <span className="relative z-10">{item.label}</span>
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );
