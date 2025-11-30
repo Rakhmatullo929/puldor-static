@@ -66,9 +66,8 @@ const Roadmap: React.FC = () => {
 
           {/* Stages Grid */}
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
-            {stages.map((stage, index) => {
+            {stages.map((stage) => {
               const isCurrent = stage.status === 'current';
-              const isUpcoming = stage.status === 'upcoming';
 
               return (
                 <div
