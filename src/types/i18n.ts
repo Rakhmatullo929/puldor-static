@@ -63,28 +63,96 @@ export interface Translations {
     members: {
       member1: {
         name: string;
+        firstName: string;
+        lastName: string;
         title: string;
         description: string;
+        shortExperience: string;
+        detailedExperience: {
+          summary: string;
+          mainStack: string;
+          skills: string;
+          workEthic: string;
+        };
+        socialLinks: {
+          linkedin?: string;
+          github?: string;
+          telegram?: string;
+        };
       };
       member2: {
         name: string;
+        firstName: string;
+        lastName: string;
         title: string;
         description: string;
+        shortExperience: string;
+        detailedExperience: {
+          summary: string;
+          mainStack: string;
+          devopsSkills: string;
+          fullstackSkills: string;
+          workEthic: string;
+        };
+        socialLinks: {
+          linkedin?: string;
+          github?: string;
+          telegram?: string;
+        };
       };
       member3: {
         name: string;
+        firstName: string;
+        lastName: string;
         title: string;
         description: string;
+        shortExperience: string;
+        detailedExperience: {
+          summary: string;
+          mainStack: string;
+          skills: string;
+          workEthic: string;
+        };
+        socialLinks: {
+          linkedin?: string;
+          github?: string;
+          telegram?: string;
+        };
       };
       member4: {
         name: string;
+        firstName: string;
+        lastName: string;
         title: string;
         description: string;
+        shortExperience: string;
+        detailedExperience: {
+          summary: string;
+          skills: string;
+          workEthic: string;
+        };
+        socialLinks: {
+          linkedin?: string;
+          github?: string;
+          telegram?: string;
+        };
       };
     };
     links: {
       linkedin: string;
       github: string;
+    };
+    hints: {
+      clickToFlip: string;
+      doubleClickForDetails: string;
+      doubleClickForInfo: string;
+    };
+    modal: {
+      mainStack: string;
+      devopsSkills: string;
+      fullstackSkills: string;
+      skills: string;
+      workEthic: string;
     };
   };
 

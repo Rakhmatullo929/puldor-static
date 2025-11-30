@@ -64,32 +64,116 @@ export const uz: Translations = {
     members: {
       member1: {
         name: 'Azizov Rakhmatullo',
+        firstName: 'Rakhmatullo',
+        lastName: 'Azizov',
         title: 'Full-stack',
         description:
           'API va tizim arxitekturasini loyihalash. Yuqori yuklanishli tizimlar bilan ishlash tajribasi, Telegram Bot API va to\'lov tizimlari bilan integratsiya. Backendning masshtablanuvchanligi va ishonchliligini ta\'minlaydi.',
+        shortExperience: 'Yuqori yuklanishli tizimlar uchun API va arxitektura loyihalash tajribasiga ega Full-stack dasturchi. Telegram Bot API va to\'lov tizimlari bilan integratsiya.',
+        detailedExperience: {
+          summary:
+            'Men 3 yildan ortiq ishlab chiqish va tizim loyihalash tajribasiga ega Full-Stack dasturchiman. O\'nlab tijorat loyihalarida ishladim: veb-platformalar va Telegram botlaridan tortib yuqori yuklanishli xizmatlargacha.',
+          mainStack:
+            'Asosiy stack — Python (Django, DRF, FastAPI), React / Next.js, Docker, Nginx, PostgreSQL, GitLab CI/CD. Ishlab chiqarish muhitlarini joylashtiraman, monitoring, zaxira nusxalar va avtomatik deploy sozlayman.',
+          skills:
+            'Yuqori yuklanishli tizimlar bilan ishlash tajribasi, Telegram Bot API va to\'lov tizimlari bilan integratsiya. Backendning masshtablanuvchanligi va ishonchliligini ta\'minlayman. Redis, RabbitMQ, Celery, tashqi API-lar bilan ishlayman.',
+          workEthic:
+            'Mas\'uliyatli, tez ishlayman va vazifalarni yakunlayman. Ishlab chiqish, arxitektura va avtomatlashtirishni birlashtirish mumkin bo\'lgan loyihalar qiziqtiradi.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
       member2: {
         name: 'Muhammad Chariev',
-        title: 'DevOps / ML integrator',
+        firstName: 'Muhammad',
+        lastName: 'Chariev',
+        title: 'Full-stack DevOps',
         description:
           'Loyiha uchun infratuzilma va CI/CD sozlash. ML/AI xizmatlarini (Whisper, GPT-4.x) backend bilan integratsiya qilish. Joylashtirish, monitoring va tizimni masshtablash. Ovozli xabarlar va matnni qayta ishlash pipeline-larini optimallashtirish.',
+        shortExperience: '3 yildan ortiq tajribaga ega Full-Stack / DevOps muhandisi. O\'nlab tijorat loyihalarida ishladim: veb-platformalar va Telegram botlaridan tortib AI integratsiyalari va yuqori yuklanishli xizmatlargacha.',
+        detailedExperience: {
+          summary:
+            'Men 3 yildan ortiq ishlab chiqish va avtomatlashtirish tajribasiga ega Full-Stack / DevOps muhandisiman. O\'nlab tijorat loyihalarida ishladim: veb-platformalar va Telegram botlaridan tortib AI integratsiyalari va yuqori yuklanishli xizmatlargacha.',
+          mainStack:
+            'Asosiy stack — Python (Django, DRF), React / Next.js, Docker, Nginx, PostgreSQL, GitLab CI/CD. Ishlab chiqarish muhitlarini joylashtiraman, monitoring (Prometheus, Grafana, Alertmanager), zaxira nusxalar va avtomatik deploy sozlayman.',
+          devopsSkills:
+            'DevOps sifatida ishlab chiqarishda self-hosted xizmatlarni boshqaraman: n8n (queue-mode + Redis + Postgres), Sygnal, LiveKit, Matrix Synapse, MAS. SSL, TURN, federatsiya va push-xabarnomalarni sozladim. Ansible, Redis, RabbitMQ, Supabase, OpenAI API, Playwright, Puppeteer bilan tajriba.',
+          fullstackSkills:
+            'Full-stack dasturchi sifatida — toza arxitektura qurish, REST API, Telegram botlar, admin panellar va Tailwind bilan UI yaratish. Avtomatlashtirish, tushunarli kod va barqaror infratuzilmani yaxshi ko\'raman.',
+          workEthic:
+            'Mas\'uliyatli, tez ishlayman va vazifalarni yakunlayman. Ishlab chiqish, DevOps va AI integratsiyalarini birlashtirish mumkin bo\'lgan loyihalar qiziqtiradi.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
       member3: {
         name: 'Nematullo Irgashev',
+        firstName: 'Nematullo',
+        lastName: 'Irgashev',
         title: 'Backend muhandisi (Mahsulot xususiyatlari)',
         description:
           'Mahsulot xususiyatlarini ishlab chiqish: maqsadlar, qarzlar, xarajatlar tahlili. Ma\'lumotlar bazasi so\'rovlarini optimallashtirish, fon vazifalari uchun Celery bilan ishlash, tashqi API-lar bilan integratsiya.',
+        shortExperience: 'Mahsulot xususiyatlariga ixtisoslashgan Backend dasturchi. Maqsadlar, qarzlar, xarajatlar tahlilini ishlab chiqish. Ma\'lumotlar bazasi so\'rovlarini optimallashtirish va fon vazifalari bilan ishlash.',
+        detailedExperience: {
+          summary:
+            'Men mahsulot xususiyatlarini ishlab chiqish va ishlashni optimallashtirish tajribasiga ega Backend muhandisiman. Xarajatlarni hisobga olish tizimlari, tahlil va tashqi API-lar bilan integratsiyalar ustida ishladim.',
+          mainStack:
+            'Asosiy stack — Python (Django, FastAPI), PostgreSQL, Celery, Redis. Ma\'lumotlar bazasi so\'rovlarini optimallashtirish, fon vazifalari bilan ishlash, tashqi API-lar bilan integratsiya.',
+          skills:
+            'Mahsulot xususiyatlarini ishlab chiqish: maqsadlar, qarzlar, xarajatlar tahlili. Fon vazifalari uchun Celery bilan ishlash tajribasi, ma\'lumotlar bazasi so\'rovlarini optimallashtirish, tashqi API-lar va integratsiyalar bilan ishlash.',
+          workEthic:
+            'Mas\'uliyatli ishlayman, kod sifati va ishlashga e\'tibor beraman. Foydali mahsulot xususiyatlarini yaratish va foydalanuvchi tajribasini yaxshilash mumkin bo\'lgan loyihalar qiziqtiradi.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
       member4: {
         name: 'Muhammad Annas',
+        firstName: 'Muhammad',
+        lastName: 'Annas',
         title: 'Product Manager',
         description:
           'Loyihani pitch qilish, mahsulot mantiqi va ingliz tilidagi UX matnlariga javobgar. Tanlov hakamlar hay\'ati va ingliz tilida so\'zlashuvchi foydalanuvchilar bilan muloqot.',
+        shortExperience: 'IELTS 8.5 ga ega Product Manager. Loyihani pitch qilish, mahsulot mantiqi va ingliz tilidagi UX matnlariga javobgar. Tanlov hakamlar hay\'ati va ingliz tilida so\'zlashuvchi foydalanuvchilar bilan muloqot.',
+        detailedExperience: {
+          summary:
+            'Men mahsulot mantiqini chuqur tushunish va ingliz tilida muloqot qilish tajribasiga ega (IELTS 8.5) Product Managerman. Loyihani pitch qilish, UX matnlari va xalqaro auditoriya bilan muloqot ustida ishlayman.',
+          skills:
+            'Loyihani pitch qilish, mahsulot mantiqi va ingliz tilidagi UX matnlariga javobgar. Tanlov hakamlar hay\'ati va ingliz tilida so\'zlashuvchi foydalanuvchilar bilan muloqot. Mahsulot strategiyasi, UX Writing va taqdimotlar bilan tajriba.',
+          workEthic:
+            'Mas\'uliyatli ishlayman, aniq muloqot va foydalanuvchi ehtiyojlarini tushunishga e\'tibor beraman. Mahsulot fikrlash, texnik tushunish va xalqaro muloqotni birlashtirish mumkin bo\'lgan loyihalar qiziqtiradi.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
     },
     links: {
       linkedin: 'LinkedIn (tez orada)',
       github: 'GitHub (tez orada)',
+    },
+    hints: {
+      clickToFlip: 'Aylantirish uchun bosing',
+      doubleClickForDetails: 'Tafsilotlar uchun ikki marta bosing',
+      doubleClickForInfo: 'Batafsil ma\'lumot uchun ikki marta bosing',
+    },
+    modal: {
+      mainStack: 'Asosiy stack',
+      devopsSkills: 'DevOps ko\'nikmalari',
+      fullstackSkills: 'Full-stack ko\'nikmalari',
+      skills: 'Ko\'nikmalar',
+      workEthic: 'Ish yondashuvi',
     },
   },
   whyUs: {

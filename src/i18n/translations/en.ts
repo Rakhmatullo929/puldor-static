@@ -64,32 +64,116 @@ export const en: Translations = {
     members: {
       member1: {
         name: 'Rakhmatullo Azizov',
+        firstName: 'Rakhmatullo',
+        lastName: 'Azizov',
         title: 'Full-stack',
         description:
           'API and system architecture design. Experience with high-load systems, integration with Telegram Bot API and payment systems. Ensures backend scalability and reliability.',
+        shortExperience: 'Full-stack developer with experience in API and architecture design for high-load systems. Integration with Telegram Bot API and payment systems.',
+        detailedExperience: {
+          summary:
+            'I am a Full-Stack developer with over 3 years of experience in development and system design. I have worked on dozens of commercial projects: from web platforms and Telegram bots to high-load services.',
+          mainStack:
+            'Main stack — Python (Django, DRF, FastAPI), React / Next.js, Docker, Nginx, PostgreSQL, GitLab CI/CD. I deploy production environments, set up monitoring, backups, and auto-deploy.',
+          skills:
+            'Experience with high-load systems, integration with Telegram Bot API and payment systems. I ensure backend scalability and reliability. Work with Redis, RabbitMQ, Celery, external APIs.',
+          workEthic:
+            'I work responsibly, quickly, and complete tasks. I am interested in projects where development, architecture, and automation can be combined.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
       member2: {
         name: 'Muhammad Chariev',
-        title: 'DevOps / ML Integrator',
+        firstName: 'Muhammad',
+        lastName: 'Chariev',
+        title: 'Full-stack DevOps',
         description:
           'Infrastructure setup and CI/CD for the project. Integration of ML/AI services (Whisper, GPT-4.x) with backend. Deployment, monitoring, and system scaling. Optimization of voice messages and text processing pipelines.',
+        shortExperience: 'Full-Stack / DevOps engineer with over 3 years of experience. I have worked on dozens of commercial projects: from web platforms and Telegram bots to AI integrations and high-load services.',
+        detailedExperience: {
+          summary:
+            'I am a Full-Stack / DevOps engineer with over 3 years of experience in development and automation. I have worked on dozens of commercial projects: from web platforms and Telegram bots to AI integrations and high-load services.',
+          mainStack:
+            'Main stack — Python (Django, DRF), React / Next.js, Docker, Nginx, PostgreSQL, GitLab CI/CD. I deploy production environments, set up monitoring (Prometheus, Grafana, Alertmanager), backups, and auto-deploy.',
+          devopsSkills:
+            'As DevOps, I can maintain self-hosted services in production: n8n (queue-mode + Redis + Postgres), Sygnal, LiveKit, Matrix Synapse, MAS. I configured SSL, TURN, federation, and push notifications. Experience with Ansible, Redis, RabbitMQ, Supabase, OpenAI API, Playwright, Puppeteer.',
+          fullstackSkills:
+            'As a full-stack developer — I build clean architecture, create REST APIs, Telegram bots, admin panels, and UI with Tailwind. I love automation, clean code, and stable infrastructure.',
+          workEthic:
+            'I work responsibly, quickly, and complete tasks. I am interested in projects where development, DevOps, and AI integrations can be combined.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
       member3: {
         name: 'Nematullo Irgashev',
+        firstName: 'Nematullo',
+        lastName: 'Irgashev',
         title: 'Backend Engineer (Product features)',
         description:
           'Development of product features: goals, debts, expense analytics. Database query optimization, work with Celery for background tasks, integrations with external APIs.',
+        shortExperience: 'Backend developer specializing in product features. Development of goals, debts, expense analytics. Database query optimization and work with background tasks.',
+        detailedExperience: {
+          summary:
+            'I am a Backend Engineer with experience in product feature development and performance optimization. I have worked on expense tracking systems, analytics, and integrations with external APIs.',
+          mainStack:
+            'Main stack — Python (Django, FastAPI), PostgreSQL, Celery, Redis. Database query optimization, work with background tasks, integrations with external APIs.',
+          skills:
+            'Development of product features: goals, debts, expense analytics. Experience with Celery for background tasks, database query optimization, work with external APIs and integrations.',
+          workEthic:
+            'I work responsibly, focusing on code quality and performance. I am interested in projects where I can create useful product features and improve user experience.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
       member4: {
         name: 'Muhammad Annas',
+        firstName: 'Muhammad',
+        lastName: 'Annas',
         title: 'Product Manager',
         description:
           'Responsible for project pitching, product logic, and UX texts in English. Communication with competition jury and English-speaking users.',
+        shortExperience: 'Product Manager with IELTS 8.5. Responsible for project pitching, product logic, and UX texts in English. Communication with competition jury and English-speaking users.',
+        detailedExperience: {
+          summary:
+            'I am a Product Manager with deep understanding of product logic and experience in English communication (IELTS 8.5). I work on project pitching, UX texts, and communication with international audiences.',
+          skills:
+            'Responsible for project pitching, product logic, and UX texts in English. Communication with competition jury and English-speaking users. Experience with product strategy, UX Writing, and presentations.',
+          workEthic:
+            'I work responsibly, focusing on clear communication and understanding user needs. I am interested in projects where product thinking, technical understanding, and international communication can be combined.',
+        },
+        socialLinks: {
+          linkedin: '',
+          github: '',
+          telegram: '',
+        },
       },
     },
     links: {
       linkedin: 'LinkedIn (soon)',
       github: 'GitHub (soon)',
+    },
+    hints: {
+      clickToFlip: 'Click to flip',
+      doubleClickForDetails: 'Double click for details',
+      doubleClickForInfo: 'Double click for detailed information',
+    },
+    modal: {
+      mainStack: 'Main stack',
+      devopsSkills: 'DevOps skills',
+      fullstackSkills: 'Full-stack skills',
+      skills: 'Skills',
+      workEthic: 'Work ethic',
     },
   },
   whyUs: {
