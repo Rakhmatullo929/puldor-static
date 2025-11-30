@@ -39,15 +39,19 @@ const WhyUs: React.FC = () => {
   return (
     <section
       id="why-us"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-dark-bg"
+      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-bg-alt to-dark-bg overflow-hidden"
     >
-      <div className="container mx-auto max-w-6xl">
+      {/* Background decoration */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-accent-green/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-accent-green to-accent-blue bg-clip-text text-transparent mb-4">
             {t.whyUs.title}
           </h2>
-          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto opacity-90">
             {t.whyUs.subtitle}
           </p>
         </div>
@@ -56,14 +60,14 @@ const WhyUs: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Left: Text Block */}
           <div className="space-y-6">
-            <div className="bg-dark-bg-alt border border-gray-800 rounded-xl p-6 md:p-8 hover:bg-slate-900/70 transition-all duration-300">
-              <p className="text-text-light text-base md:text-lg leading-relaxed mb-4">
+            <div className="group bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-gray-800/50 rounded-2xl p-6 md:p-8 hover:border-accent-green/30 hover:shadow-xl hover:shadow-accent-green/10 transition-all duration-300">
+              <p className="text-text-light text-base md:text-lg leading-relaxed mb-4 opacity-90">
                 {t.whyUs.description.paragraph1}
               </p>
-              <p className="text-text-light text-base md:text-lg leading-relaxed mb-4">
+              <p className="text-text-light text-base md:text-lg leading-relaxed mb-4 opacity-90">
                 {t.whyUs.description.paragraph2}
               </p>
-              <p className="text-text-light text-base md:text-lg leading-relaxed">
+              <p className="text-text-light text-base md:text-lg leading-relaxed opacity-90">
                 {t.whyUs.description.paragraph3}
               </p>
             </div>
@@ -74,14 +78,20 @@ const WhyUs: React.FC = () => {
             {reasons.map((reason, index) => (
               <div
                 key={index}
-                className="bg-dark-bg-alt border border-gray-800 rounded-xl p-6 hover:-translate-y-[4px] hover:shadow-lg hover:border-accent-green/50 hover:bg-slate-900/70 transition-all duration-300"
+                className="group relative bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-gray-800/50 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent-green/20 hover:border-accent-green/50 transition-all duration-300"
               >
-                <h3 className="text-lg md:text-xl font-semibold text-accent-green mb-3">
-                  {reason.title}
-                </h3>
-                <p className="text-text-light text-sm md:text-base leading-relaxed">
-                  {reason.description}
-                </p>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-green/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-accent-green shadow-lg shadow-accent-green/50"></div>
+                    <h3 className="text-lg md:text-xl font-semibold text-accent-green">
+                      {reason.title}
+                    </h3>
+                  </div>
+                  <p className="text-text-light text-sm md:text-base leading-relaxed opacity-90">
+                    {reason.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

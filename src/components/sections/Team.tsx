@@ -42,14 +42,14 @@ const Team: React.FC = () => {
       title: t.team.members.member2.title,
       description: t.team.members.member2.description,
       techStack: [
+        "Docker",
+        "CI/CD",
+        "Kubernetes",
         "Python",
-        "PyTorch",
-        "Transformers",
         "OpenAI API",
         "Whisper",
         "GPT-4.x",
-        "NLP",
-        "NLU",
+        "Monitoring",
       ],
       photo: mukhammadPhoto,
     },
@@ -84,15 +84,18 @@ const Team: React.FC = () => {
   return (
     <section
       id="team"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-dark-bg"
+      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-bg to-dark-bg-alt overflow-hidden"
     >
-      <div className="container mx-auto max-w-6xl">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-accent-blue to-accent-green bg-clip-text text-transparent mb-4">
             {t.team.title}
           </h2>
-          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto opacity-90">
             {t.team.subtitle}
           </p>
         </div>
@@ -102,44 +105,50 @@ const Team: React.FC = () => {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="bg-slate-900/60 border border-gray-800 rounded-2xl p-6 shadow-sm hover:-translate-y-[4px] hover:shadow-lg hover:bg-slate-900/70 transition-all duration-300"
+              className="group relative bg-gradient-to-br from-slate-900/80 to-dark-bg border border-gray-800/50 rounded-2xl p-6 shadow-lg hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-blue/20 hover:border-accent-blue/50 transition-all duration-300"
             >
-              {/* Photo */}
-              {member.photo && (
-                <div className="mb-4 flex justify-center">
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-gray-700 shadow-md"
-                  />
+              <div className="absolute inset-0 bg-gradient-to-br from-accent-blue/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative">
+                {/* Photo */}
+                {member.photo && (
+                  <div className="mb-4 flex justify-center">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-accent-green to-accent-blue rounded-full blur-lg opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-gray-700 shadow-xl group-hover:border-accent-blue/50 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Name and Title */}
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-accent-blue transition-colors duration-300">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-accent-blue font-medium">
+                    {member.title}
+                  </p>
                 </div>
-              )}
 
-              {/* Name and Title */}
-              <div className="mb-4">
-                <h3 className="text-xl font-bold text-white mb-1">
-                  {member.name}
-                </h3>
-                <p className="text-sm text-accent-blue font-medium">
-                  {member.title}
+                {/* Description */}
+                <p className="text-text-light text-sm leading-relaxed mb-4 opacity-90">
+                  {member.description}
                 </p>
-              </div>
 
-              {/* Description */}
-              <p className="text-text-light text-sm leading-relaxed mb-4">
-                {member.description}
-              </p>
-
-              {/* Tech Stack Tags */}
-              <div className="flex flex-wrap gap-2">
-                {member.techStack.map((tech, techIndex) => (
-                  <span
-                    key={techIndex}
-                    className="px-2.5 py-1 text-xs font-medium bg-dark-bg-alt border border-gray-700 rounded-lg text-text-light"
-                  >
-                    {tech}
-                  </span>
-                ))}
+                {/* Tech Stack Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {member.techStack.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-2.5 py-1 text-xs font-medium bg-dark-bg-alt/80 border border-gray-700/50 rounded-lg text-text-light hover:border-accent-green/50 hover:text-accent-green transition-all duration-200"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           ))}

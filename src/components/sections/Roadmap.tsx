@@ -14,14 +14,14 @@ const Roadmap: React.FC = () => {
       id: 'idea',
       title: t.roadmap.stages.idea.title,
       subtitle: t.roadmap.stages.idea.subtitle,
-      status: 'current' as const,
+      status: 'upcoming' as const,
       items: t.roadmap.stages.idea.items,
     },
     {
       id: 'prototype',
       title: t.roadmap.stages.prototype.title,
       subtitle: t.roadmap.stages.prototype.subtitle,
-      status: 'upcoming' as const,
+      status: 'current' as const,
       items: t.roadmap.stages.prototype.items,
     },
     {
@@ -43,15 +43,19 @@ const Roadmap: React.FC = () => {
   return (
     <section
       id="roadmap"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-dark-bg"
+      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-bg-alt to-dark-bg overflow-hidden"
     >
-      <div className="container mx-auto max-w-6xl">
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-accent-green/5 rounded-full blur-3xl"></div>
+      <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent-blue/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-accent-green to-accent-blue bg-clip-text text-transparent mb-4">
             {t.roadmap.title}
           </h2>
-          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto opacity-90">
             {t.roadmap.subtitle}
           </p>
         </div>
@@ -59,10 +63,10 @@ const Roadmap: React.FC = () => {
         {/* Timeline Container */}
         <div className="relative">
           {/* Desktop: Horizontal Timeline Line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-green via-accent-blue to-gray-800 transform -translate-y-1/2 z-0" />
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-accent-green via-accent-blue to-gray-800/50 transform -translate-y-1/2 z-0 shadow-lg shadow-accent-green/20" />
 
           {/* Mobile: Vertical Timeline Line */}
-          <div className="lg:hidden absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-green via-accent-blue to-gray-800 z-0" />
+          <div className="lg:hidden absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-accent-green via-accent-blue to-gray-800/50 z-0 shadow-lg shadow-accent-green/20" />
 
           {/* Stages Grid */}
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-6">
@@ -79,10 +83,10 @@ const Roadmap: React.FC = () => {
                     {/* Mobile: Dot on left */}
                     <div className="lg:hidden flex-shrink-0 mt-1">
                       <div
-                        className={`w-4 h-4 rounded-full border-2 ${
+                        className={`w-5 h-5 rounded-full border-2 transition-all duration-300 ${
                           isCurrent
-                            ? 'bg-accent-green border-accent-green shadow-lg shadow-accent-green/50'
-                            : 'bg-dark-bg border-gray-600'
+                            ? 'bg-accent-green border-accent-green shadow-xl shadow-accent-green/50 animate-pulse'
+                            : 'bg-dark-bg border-gray-600 group-hover:border-gray-500'
                         }`}
                       />
                     </div>
@@ -90,20 +94,20 @@ const Roadmap: React.FC = () => {
                     {/* Desktop: Dot on top */}
                     <div className="hidden lg:flex justify-center mb-4">
                       <div
-                        className={`w-6 h-6 rounded-full border-2 ${
+                        className={`w-7 h-7 rounded-full border-2 transition-all duration-300 ${
                           isCurrent
-                            ? 'bg-accent-green border-accent-green shadow-lg shadow-accent-green/50'
-                            : 'bg-dark-bg border-gray-600'
+                            ? 'bg-accent-green border-accent-green shadow-xl shadow-accent-green/50 animate-pulse'
+                            : 'bg-dark-bg border-gray-600 group-hover:border-gray-500'
                         }`}
                       />
                     </div>
 
                     {/* Card */}
                     <div
-                      className={`flex-1 bg-dark-bg-alt border rounded-xl p-6 md:p-8 shadow-lg backdrop-blur-sm transition-all duration-300 ${
+                      className={`group flex-1 bg-gradient-to-br from-dark-bg-alt to-dark-bg border rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm transition-all duration-300 ${
                         isCurrent
-                          ? 'border-accent-green/50 shadow-accent-green/20 hover:border-accent-green/70 hover:-translate-y-[4px] hover:shadow-xl hover:bg-slate-900/70'
-                          : 'border-gray-800 hover:border-gray-700 hover:-translate-y-[4px] hover:shadow-xl hover:bg-slate-900/70'
+                          ? 'border-accent-green/50 shadow-accent-green/20 hover:border-accent-green/70 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-green/30'
+                          : 'border-gray-800/50 hover:border-gray-700 hover:-translate-y-2 hover:shadow-xl'
                       }`}
                     >
                       {/* Stage Title */}
@@ -116,7 +120,7 @@ const Roadmap: React.FC = () => {
                           {stage.title}
                         </h3>
                         {isCurrent && (
-                          <span className="px-2 py-1 text-xs font-semibold bg-accent-green/20 text-accent-green rounded-full">
+                          <span className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-accent-green/20 to-accent-green/10 text-accent-green rounded-full border border-accent-green/30 shadow-lg shadow-accent-green/20">
                             {t.roadmap.current}
                           </span>
                         )}

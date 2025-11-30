@@ -70,9 +70,9 @@ export const uz: Translations = {
       },
       member2: {
         name: 'Muhammad Chariev',
-        title: 'AI / ML muhandisi',
+        title: 'DevOps / ML integrator',
         description:
-          'Ovozli xabarlar va matnni qayta ishlash uchun AI pipeline-larini ishlab chiqish. Tranzaksiyalarni tasniflash, ob\'yektlarni ajratib olish (summalar, toifalar, sanalar). Whisper va GPT-4.x bilan integratsiya.',
+          'Loyiha uchun infratuzilma va CI/CD sozlash. ML/AI xizmatlarini (Whisper, GPT-4.x) backend bilan integratsiya qilish. Joylashtirish, monitoring va tizimni masshtablash. Ovozli xabarlar va matnni qayta ishlash pipeline-larini optimallashtirish.',
       },
       member3: {
         name: 'Nematullo Irgashev',
@@ -100,7 +100,7 @@ export const uz: Translations = {
       paragraph1:
         'Biz allaqachon 6 oydan ortiq vaqt davomida xarajatlarni hisobga olish uchun bot prototipini ishlab chiqmoqdamiz. Bu vaqt ichida biz g\'oyadan ishlaydigan mahsulotgacha bo\'lgan yo\'lni bosib o\'tdik, foydalanuvchilardan fikr-mulohazalar oldik va nimalarni yaxshilash kerakligini tushundik. Hozir biz to\'plangan tajribadan foydalanib, yanada toza va masshtablanuvchan versiyani yaratmoqdamiz.',
       paragraph2:
-        'Jamoada asosiy kompetentsiyalar to\'plangan: yuqori yuklanishli tizimlar bilan ishlash tajribasiga ega kuchli backend dasturchi, NLP va NLU bo\'yicha ixtisoslashgan ML muhandisi va pitch va mahsulot mantiqiga javobgar IELTS 8.5 ga ega shaxs. Bu kombinatsiya bizga mahsulotning barcha jihatlarini — texnik amalga oshirishdan tortib tanlov hakamlar hay\'ati bilan muloqotgacha qamrab olish imkonini beradi.',
+        'Jamoada asosiy kompetentsiyalar to\'plangan: yuqori yuklanishli tizimlar bilan ishlash tajribasiga ega kuchli backend dasturchi, ML/AI xizmatlar integratsiyasi va infratuzilma bo\'yicha ixtisoslashgan DevOps muhandisi va pitch va mahsulot mantiqiga javobgar IELTS 8.5 ga ega shaxs. Bu kombinatsiya bizga mahsulotning barcha jihatlarini — texnik amalga oshirishdan tortib tanlov hakamlar hay\'ati bilan muloqotgacha qamrab olish imkonini beradi.',
       paragraph3:
         'Biz mahalliy kontekstni yaxshi tushunamiz: bir chatda rus, o\'zbek va ingliz tillarining aralashmasi, mintaqadagi moliyaviy madaniyatning xususiyatlari, haqiqiy foydalanuvchilar og\'riqlari. Bu mavhum g\'oya emas — biz odamlar qanday muammolarga duch kelishini bilamiz, chunki biz allaqachon ular bilan to\'g\'ridan-to\'g\'ri ishladik.',
     },

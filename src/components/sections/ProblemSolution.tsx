@@ -12,15 +12,19 @@ const ProblemSolution: React.FC = () => {
   return (
     <section
       id="problem-solution"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-dark-bg"
+      className="relative py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-dark-bg to-dark-bg-alt overflow-hidden"
     >
-      <div className="container mx-auto max-w-6xl">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent-green/5 rounded-full blur-3xl"></div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-white via-accent-green to-white bg-clip-text text-transparent mb-4">
             {t.problemSolution.title}
           </h2>
-          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto opacity-90">
             {t.problemSolution.subtitle}
           </p>
         </div>
@@ -28,39 +32,45 @@ const ProblemSolution: React.FC = () => {
         {/* Two Column Layout */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Left: Problem Card */}
-          <div className="bg-dark-bg-alt border border-red-500/30 rounded-xl p-6 md:p-8 shadow-lg backdrop-blur-sm hover:-translate-y-[4px] hover:shadow-xl hover:bg-slate-900/70 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-red-500"></div>
-              <h3 className="text-2xl md:text-3xl font-bold text-red-400">
-                {t.problemSolution.problem.title}
-              </h3>
+          <div className="group relative bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-red-500/30 rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 hover:border-red-500/50 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 rounded-full bg-red-500 shadow-lg shadow-red-500/50 animate-pulse"></div>
+                <h3 className="text-2xl md:text-3xl font-bold text-red-400">
+                  {t.problemSolution.problem.title}
+                </h3>
+              </div>
+              <ul className="space-y-4 text-text-light text-base md:text-lg">
+                {t.problemSolution.problem.items.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 group/item">
+                    <span className="text-red-500 mt-1 text-xl group-hover/item:scale-125 transition-transform duration-200">•</span>
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-4 text-text-light text-base md:text-lg">
-              {t.problemSolution.problem.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="text-red-500 mt-1">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
 
           {/* Right: Solution Card */}
-          <div className="bg-dark-bg-alt border border-accent-green/30 rounded-xl p-6 md:p-8 shadow-lg backdrop-blur-sm hover:-translate-y-[4px] hover:shadow-xl hover:bg-slate-900/70 transition-all duration-300">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-2 h-2 rounded-full bg-accent-green"></div>
-              <h3 className="text-2xl md:text-3xl font-bold text-accent-green">
-                {t.problemSolution.solution.title}
-              </h3>
+          <div className="group relative bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-accent-green/30 rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-green/20 hover:border-accent-green/50 transition-all duration-300">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-3 h-3 rounded-full bg-accent-green shadow-lg shadow-accent-green/50 animate-pulse"></div>
+                <h3 className="text-2xl md:text-3xl font-bold text-accent-green">
+                  {t.problemSolution.solution.title}
+                </h3>
+              </div>
+              <ul className="space-y-4 text-text-light text-base md:text-lg">
+                {t.problemSolution.solution.items.map((item, index) => (
+                  <li key={index} className="flex items-start gap-3 group/item">
+                    <span className="text-accent-green mt-1 text-xl group-hover/item:scale-125 transition-transform duration-200">✓</span>
+                    <span className="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <ul className="space-y-4 text-text-light text-base md:text-lg">
-              {t.problemSolution.solution.items.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="text-accent-green mt-1">•</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

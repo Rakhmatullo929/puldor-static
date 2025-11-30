@@ -70,9 +70,9 @@ export const en: Translations = {
       },
       member2: {
         name: 'Muhammad Chariev',
-        title: 'AI / ML Engineer',
+        title: 'DevOps / ML Integrator',
         description:
-          'Development of AI pipelines for processing voice messages and text. Transaction classification, entity extraction (amounts, categories, dates). Integration with Whisper and GPT-4.x.',
+          'Infrastructure setup and CI/CD for the project. Integration of ML/AI services (Whisper, GPT-4.x) with backend. Deployment, monitoring, and system scaling. Optimization of voice messages and text processing pipelines.',
       },
       member3: {
         name: 'Nematullo Irgashev',
@@ -100,7 +100,7 @@ export const en: Translations = {
       paragraph1:
         'We have already been developing a prototype bot for expense tracking for over 6 months. During this time, we went from idea to working product, received user feedback, and understood what needs to be improved. Now we are creating a cleaner and more scalable version using accumulated experience.',
       paragraph2:
-        'The team brings together key competencies: a strong backend developer with experience in high-load systems, an ML engineer specializing in NLP and NLU, and a person with IELTS 8.5 who handles pitching and product logic. This combination allows us to cover all aspects of the product — from technical implementation to communication with the competition jury.',
+        'The team brings together key competencies: a strong backend developer with experience in high-load systems, a DevOps engineer specializing in ML/AI service integration and infrastructure, and a person with IELTS 8.5 who handles pitching and product logic. This combination allows us to cover all aspects of the product — from technical implementation to communication with the competition jury.',
       paragraph3:
         'We understand the local context well: the mix of Russian, Uzbek, and English languages in one chat, features of financial culture in the region, real user pain points. This is not an abstract idea — we know what problems people face because we have already worked with them directly.',
     },

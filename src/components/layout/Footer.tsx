@@ -8,10 +8,13 @@ const Footer: React.FC = () => {
   const { t } = useI18n();
 
   return (
-    <footer className="bg-dark-bg-alt border-t border-gray-800 py-8 md:py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="relative bg-gradient-to-b from-dark-bg-alt to-dark-bg border-t border-gray-800/50 py-8 md:py-12 overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-gradient-to-r from-accent-green/5 via-transparent to-accent-blue/5"></div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          <p className="text-text-light text-sm md:text-base">
+          <p className="text-text-light text-sm md:text-base opacity-80">
             {t.footer.text}
           </p>
         </div>
