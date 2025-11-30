@@ -45,7 +45,7 @@ const LanguageSwitcher: React.FC = () => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-dark-bg-alt border border-gray-700 rounded-lg text-text-light hover:border-accent-green hover:bg-gray-800 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-accent-green/50"
+        className="flex items-center gap-2 px-3 py-2 text-sm font-medium glass-button text-white rounded-2xl focus:outline-none focus:ring-2 focus:ring-white/20"
         aria-label="Select language"
         aria-expanded={isOpen}
       >
@@ -63,15 +63,15 @@ const LanguageSwitcher: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-dark-bg-alt border border-gray-700 rounded-lg shadow-xl z-50 overflow-hidden">
+        <div className="absolute right-0 mt-2 w-48 glass-card-strong rounded-3xl shadow-2xl z-50 overflow-hidden">
           {languages.map((lang) => (
             <button
               key={lang.code}
               onClick={() => handleLanguageChange(lang.code)}
-              className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-left transition-colors duration-150 ${
+              className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium text-left transition-all duration-300 ${
                 language === lang.code
-                  ? 'bg-accent-green/20 text-accent-green'
-                  : 'text-text-light hover:bg-gray-800 hover:text-accent-green'
+                  ? 'bg-white/10 text-white'
+                  : 'text-white/70 hover:bg-white/5 hover:text-white'
               }`}
             >
               <span className="text-lg">{lang.flag}</span>

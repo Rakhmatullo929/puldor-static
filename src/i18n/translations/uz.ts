@@ -66,9 +66,9 @@ export const uz: Translations = {
         name: 'Azizov Rakhmatullo',
         firstName: 'Rakhmatullo',
         lastName: 'Azizov',
-        title: 'Full-stack',
+        title: 'Team Lead Fullstack',
         description:
-          'API va tizim arxitekturasini loyihalash. Yuqori yuklanishli tizimlar bilan ishlash tajribasi, Telegram Bot API va to\'lov tizimlari bilan integratsiya. Backendning masshtablanuvchanligi va ishonchliligini ta\'minlaydi.',
+          'Yuqori yuklanishli tizimlar arxitekturasi. Telegram Bot API va to\'lov integratsiyalari. Backendning masshtablanuvchanligini ta\'minlaydi.',
         shortExperience: 'Yuqori yuklanishli tizimlar uchun API va arxitektura loyihalash tajribasiga ega Full-stack dasturchi. Telegram Bot API va to\'lov tizimlari bilan integratsiya.',
         detailedExperience: {
           summary:
@@ -90,9 +90,9 @@ export const uz: Translations = {
         name: 'Muhammad Chariev',
         firstName: 'Muhammad',
         lastName: 'Chariev',
-        title: 'Full-stack DevOps',
+        title: 'Middle + Fullstack DevOps/MLOps',
         description:
-          'Loyiha uchun infratuzilma va CI/CD sozlash. ML/AI xizmatlarini (Whisper, GPT-4.x) backend bilan integratsiya qilish. Joylashtirish, monitoring va tizimni masshtablash. Ovozli xabarlar va matnni qayta ishlash pipeline-larini optimallashtirish.',
+          'Infratuzilma va CI/CD. ML/AI xizmatlar integratsiyasi (Whisper, GPT-4.x). Joylashtirish, monitoring va masshtablash.',
         shortExperience: '3 yildan ortiq tajribaga ega Full-Stack / DevOps muhandisi. O\'nlab tijorat loyihalarida ishladim: veb-platformalar va Telegram botlaridan tortib AI integratsiyalari va yuqori yuklanishli xizmatlargacha.',
         detailedExperience: {
           summary:
@@ -116,9 +116,9 @@ export const uz: Translations = {
         name: 'Nematullo Irgashev',
         firstName: 'Nematullo',
         lastName: 'Irgashev',
-        title: 'Backend muhandisi (Mahsulot xususiyatlari)',
+        title: 'Middle Fullstack',
         description:
-          'Mahsulot xususiyatlarini ishlab chiqish: maqsadlar, qarzlar, xarajatlar tahlili. Ma\'lumotlar bazasi so\'rovlarini optimallashtirish, fon vazifalari uchun Celery bilan ishlash, tashqi API-lar bilan integratsiya.',
+          'Mahsulot xususiyatlari: maqsadlar, qarzlar, tahlil. Ma\'lumotlar bazasi optimizatsiyasi va fon vazifalari.',
         shortExperience: 'Mahsulot xususiyatlariga ixtisoslashgan Backend dasturchi. Maqsadlar, qarzlar, xarajatlar tahlilini ishlab chiqish. Ma\'lumotlar bazasi so\'rovlarini optimallashtirish va fon vazifalari bilan ishlash.',
         detailedExperience: {
           summary:
@@ -140,9 +140,9 @@ export const uz: Translations = {
         name: 'Muhammad Annas',
         firstName: 'Muhammad',
         lastName: 'Annas',
-        title: 'Product Manager',
+        title: 'Senior Product Manager',
         description:
-          'Loyihani pitch qilish, mahsulot mantiqi va ingliz tilidagi UX matnlariga javobgar. Tanlov hakamlar hay\'ati va ingliz tilida so\'zlashuvchi foydalanuvchilar bilan muloqot.',
+          'Loyiha pitch, mahsulot mantiqi va ingliz tilidagi UX matnlari. Hakamlar hay\'ati va ingliz tilidagi foydalanuvchilar bilan muloqot.',
         shortExperience: 'IELTS 8.5 ga ega Product Manager. Loyihani pitch qilish, mahsulot mantiqi va ingliz tilidagi UX matnlariga javobgar. Tanlov hakamlar hay\'ati va ingliz tilida so\'zlashuvchi foydalanuvchilar bilan muloqot.',
         detailedExperience: {
           summary:

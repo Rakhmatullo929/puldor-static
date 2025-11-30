@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Layout from '../components/layout/Layout';
 import Hero from '../components/sections/Hero';
 import ProblemSolution from '../components/sections/ProblemSolution';
+import Interactive3D from '../components/sections/Interactive3D';
 import Team from '../components/sections/Team';
 import WhyUs from '../components/sections/WhyUs';
 import Roadmap from '../components/sections/Roadmap';
@@ -21,6 +22,7 @@ const MainPage: React.FC = () => {
     <Layout>
       <Hero />
       <ProblemSolution />
+      <Interactive3D />
       <Team />
       <WhyUs />
       <Roadmap />

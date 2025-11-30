@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useI18n } from '../../i18n/I18nContext';
+import { motion } from 'framer-motion';
 
 /**
  * Hero section component - main landing section with primary CTA.
@@ -59,11 +60,16 @@ const Hero: React.FC = () => {
           {/* Left Column: Content */}
           <div className="text-center lg:text-left animate-fade-in">
             {/* Badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-accent-green/10 to-accent-blue/10 border border-accent-green/30 mb-6 backdrop-blur-sm shadow-lg shadow-accent-green/10 hover:shadow-accent-green/20 transition-all duration-300">
-              <span className="text-sm font-medium text-gradient">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center px-5 py-2.5 rounded-full glass-card mb-6"
+            >
+              <span className="text-sm font-medium text-white relative z-10">
                 {t.hero.badge}
               </span>
-            </div>
+            </motion.div>
 
             {/* Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
@@ -79,47 +85,63 @@ const Hero: React.FC = () => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
-              <button
+              <motion.button
                 onClick={() => scrollToSection('problem-solution')}
-                className="group px-8 py-4 text-lg font-semibold bg-gradient-to-r from-accent-green to-green-500 text-dark-bg rounded-lg hover:shadow-lg hover:shadow-accent-green/50 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+                className="glass-button px-8 py-4 text-lg font-semibold text-white rounded-2xl w-full sm:w-auto"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
               >
                 <span className="relative z-10">{t.hero.button1}</span>
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 onClick={() => scrollToSection('why-us')}
-                className="group px-8 py-4 text-lg font-semibold border-2 border-accent-blue text-accent-blue rounded-lg hover:bg-accent-blue hover:text-dark-bg hover:shadow-lg hover:shadow-accent-blue/50 hover:scale-105 transition-all duration-300 w-full sm:w-auto"
+                className="glass-button px-8 py-4 text-lg font-semibold text-white rounded-2xl w-full sm:w-auto"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
               >
-                {t.hero.button2}
-              </button>
+                <span className="relative z-10">{t.hero.button2}</span>
+              </motion.button>
             </div>
 
             {/* Stats Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto lg:mx-0">
-              <div className="group bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-gray-800/50 rounded-xl p-4 backdrop-blur-sm hover:-translate-y-2 hover:shadow-lg hover:shadow-accent-green/20 hover:border-accent-green/30 transition-all duration-300">
-                <p className="text-sm md:text-base text-text-light font-medium">
-                  {t.hero.stats.languages}
-                </p>
-              </div>
-              <div className="group bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-gray-800/50 rounded-xl p-4 backdrop-blur-sm hover:-translate-y-2 hover:shadow-lg hover:shadow-accent-blue/20 hover:border-accent-blue/30 transition-all duration-300">
-                <p className="text-sm md:text-base text-text-light font-medium">
-                  {t.hero.stats.voiceToCategories}
-                </p>
-              </div>
-              <div className="group bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-gray-800/50 rounded-xl p-4 backdrop-blur-sm hover:-translate-y-2 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/30 transition-all duration-300">
-                <p className="text-sm md:text-base text-text-light font-medium">
-                  {t.hero.stats.goalsAndAnalytics}
-                </p>
-              </div>
+              {[
+                t.hero.stats.languages,
+                t.hero.stats.voiceToCategories,
+                t.hero.stats.goalsAndAnalytics,
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="glass-card rounded-3xl p-5"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                >
+                  <p className="text-sm md:text-base text-white font-medium relative z-10">
+                    {stat}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
 
           {/* Right Column: Animated Demo */}
-          <div className="hidden lg:block animate-fade-in-delay">
-            <div className="relative bg-gradient-to-br from-accent-green/20 via-accent-blue/10 to-purple-500/20 border border-accent-green/30 rounded-2xl p-8 md:p-12 backdrop-blur-sm shadow-2xl shadow-accent-green/10 hover:shadow-accent-green/20 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-green/5 to-transparent rounded-2xl"></div>
-              
+          <motion.div
+            className="hidden lg:block"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            <div className="relative glass-card-strong rounded-3xl p-8 md:p-12">
               {/* Animated Content Container */}
-              <div className="relative bg-dark-bg/80 rounded-xl p-6 border border-gray-800/50 backdrop-blur-sm min-h-[400px] overflow-hidden">
+              <div className="relative glass-card rounded-3xl p-6 min-h-[400px] overflow-hidden">
                 
                 {/* Stage 0-1: Person speaking into phone */}
                 {(animationStage === 0 || animationStage === 1) && (
@@ -181,8 +203,8 @@ const Hero: React.FC = () => {
                             <div className="bg-accent-green/20 border border-accent-green/50 rounded-lg px-3 py-2 backdrop-blur-sm">
                               <p className="text-accent-green text-xs font-medium whitespace-nowrap">
                                 Говорит...
-                              </p>
-                            </div>
+                </p>
+              </div>
                           </div>
                         )}
                       </div>
@@ -253,8 +275,8 @@ const Hero: React.FC = () => {
                           </div>
                           <p className="text-accent-blue text-sm font-medium ml-2">
                             AI обрабатывает...
-                          </p>
-                        </div>
+                </p>
+              </div>
                       )}
 
                       {/* Result Card */}
@@ -274,18 +296,18 @@ const Hero: React.FC = () => {
                               <div className="bg-dark-bg/50 rounded px-2 py-1">
                                 <p className="text-text-light text-xs opacity-80 italic">
                                   "{t.hero.demo.voiceExample}"
-                                </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                </p>
+              </div>
+            </div>
+          </div>
+                  </div>
                       )}
-                    </div>
+                  </div>
                   </div>
                 )}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

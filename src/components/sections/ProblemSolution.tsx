@@ -32,8 +32,8 @@ const ProblemSolution: React.FC = () => {
         {/* Two Column Layout */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Left: Problem Card */}
-          <div className="group relative bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-red-500/30 rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-red-500/20 hover:border-red-500/50 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="group relative glass-card-strong rounded-3xl p-6 md:p-8 transition-all duration-500 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/15 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-3 h-3 rounded-full bg-red-500 shadow-lg shadow-red-500/50 animate-pulse"></div>
@@ -53,8 +53,8 @@ const ProblemSolution: React.FC = () => {
           </div>
 
           {/* Right: Solution Card */}
-          <div className="group relative bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-accent-green/30 rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-green/20 hover:border-accent-green/50 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent-green/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="group relative glass-card-strong rounded-3xl p-6 md:p-8 transition-all duration-500 hover:scale-[1.02]">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent-green/15 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="relative">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-3 h-3 rounded-full bg-accent-green shadow-lg shadow-accent-green/50 animate-pulse"></div>

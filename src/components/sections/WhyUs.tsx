@@ -60,7 +60,7 @@ const WhyUs: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12">
           {/* Left: Text Block */}
           <div className="space-y-6">
-            <div className="group bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-gray-800/50 rounded-2xl p-6 md:p-8 hover:border-accent-green/30 hover:shadow-xl hover:shadow-accent-green/10 transition-all duration-300">
+            <div className="group glass-card-strong rounded-3xl p-6 md:p-8 transition-all duration-500 hover:scale-[1.01]">
               <p className="text-text-light text-base md:text-lg leading-relaxed mb-4 opacity-90">
                 {t.whyUs.description.paragraph1}
               </p>
@@ -78,9 +78,9 @@ const WhyUs: React.FC = () => {
             {reasons.map((reason, index) => (
               <div
                 key={index}
-                className="group relative bg-gradient-to-br from-dark-bg-alt to-dark-bg border border-gray-800/50 rounded-xl p-6 hover:-translate-y-2 hover:shadow-xl hover:shadow-accent-green/20 hover:border-accent-green/50 transition-all duration-300"
+                className="group relative glass-card rounded-3xl p-6 transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-green/5 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-accent-green/15 to-transparent rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="relative">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-2 h-2 rounded-full bg-accent-green shadow-lg shadow-accent-green/50"></div>

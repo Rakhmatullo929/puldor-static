@@ -66,9 +66,9 @@ export const en: Translations = {
         name: 'Rakhmatullo Azizov',
         firstName: 'Rakhmatullo',
         lastName: 'Azizov',
-        title: 'Full-stack',
+        title: 'Team Lead Fullstack',
         description:
-          'API and system architecture design. Experience with high-load systems, integration with Telegram Bot API and payment systems. Ensures backend scalability and reliability.',
+          'High-load system architecture. Telegram Bot API and payment integrations. Ensures backend scalability.',
         shortExperience: 'Full-stack developer with experience in API and architecture design for high-load systems. Integration with Telegram Bot API and payment systems.',
         detailedExperience: {
           summary:
@@ -90,9 +90,9 @@ export const en: Translations = {
         name: 'Muhammad Chariev',
         firstName: 'Muhammad',
         lastName: 'Chariev',
-        title: 'Full-stack DevOps',
+        title: 'Middle + Fullstack DevOps/MLOps',
         description:
-          'Infrastructure setup and CI/CD for the project. Integration of ML/AI services (Whisper, GPT-4.x) with backend. Deployment, monitoring, and system scaling. Optimization of voice messages and text processing pipelines.',
+          'Infrastructure and CI/CD. ML/AI services integration (Whisper, GPT-4.x). Deployment, monitoring and scaling.',
         shortExperience: 'Full-Stack / DevOps engineer with over 3 years of experience. I have worked on dozens of commercial projects: from web platforms and Telegram bots to AI integrations and high-load services.',
         detailedExperience: {
           summary:
@@ -116,9 +116,9 @@ export const en: Translations = {
         name: 'Nematullo Irgashev',
         firstName: 'Nematullo',
         lastName: 'Irgashev',
-        title: 'Backend Engineer (Product features)',
+        title: 'Middle Fullstack',
         description:
-          'Development of product features: goals, debts, expense analytics. Database query optimization, work with Celery for background tasks, integrations with external APIs.',
+          'Product features: goals, debts, analytics. DB optimization and background tasks.',
         shortExperience: 'Backend developer specializing in product features. Development of goals, debts, expense analytics. Database query optimization and work with background tasks.',
         detailedExperience: {
           summary:
@@ -140,9 +140,9 @@ export const en: Translations = {
         name: 'Muhammad Annas',
         firstName: 'Muhammad',
         lastName: 'Annas',
-        title: 'Product Manager',
+        title: 'Senior Product Manager',
         description:
-          'Responsible for project pitching, product logic, and UX texts in English. Communication with competition jury and English-speaking users.',
+          'Project pitching, product logic and English UX texts. Communication with jury and English-speaking users.',
         shortExperience: 'Product Manager with IELTS 8.5. Responsible for project pitching, product logic, and UX texts in English. Communication with competition jury and English-speaking users.',
         detailedExperience: {
           summary:

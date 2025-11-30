@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   const { t } = useI18n();
 
   return (
-    <footer className="relative bg-gradient-to-b from-dark-bg-alt to-dark-bg border-t border-gray-800/50 py-8 md:py-12 overflow-hidden">
+    <footer className="relative py-8 md:py-12 overflow-hidden border-t border-white/10">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-accent-green/5 via-transparent to-accent-blue/5"></div>
       

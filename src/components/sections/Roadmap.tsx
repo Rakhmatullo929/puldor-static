@@ -104,10 +104,10 @@ const Roadmap: React.FC = () => {
 
                     {/* Card */}
                     <div
-                      className={`group flex-1 bg-gradient-to-br from-dark-bg-alt to-dark-bg border rounded-2xl p-6 md:p-8 shadow-xl backdrop-blur-sm transition-all duration-300 ${
+                      className={`group flex-1 glass-card-strong rounded-3xl p-6 md:p-8 transition-all duration-500 ${
                         isCurrent
-                          ? 'border-accent-green/50 shadow-accent-green/20 hover:border-accent-green/70 hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent-green/30'
-                          : 'border-gray-800/50 hover:border-gray-700 hover:-translate-y-2 hover:shadow-xl'
+                          ? 'hover:scale-[1.02]'
+                          : 'hover:scale-[1.02]'
                       }`}
                     >
                       {/* Stage Title */}
@@ -120,7 +120,7 @@ const Roadmap: React.FC = () => {
                           {stage.title}
                         </h3>
                         {isCurrent && (
-                          <span className="px-3 py-1 text-xs font-semibold bg-gradient-to-r from-accent-green/20 to-accent-green/10 text-accent-green rounded-full border border-accent-green/30 shadow-lg shadow-accent-green/20">
+                          <span className="px-3 py-1 text-xs font-semibold glass-button text-accent-green rounded-full">
                             {t.roadmap.current}
                           </span>
                         )}
