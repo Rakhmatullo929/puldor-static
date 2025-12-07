@@ -13,6 +13,7 @@ export interface Translations {
   header: {
     nav: {
       problemSolution: string;
+      demo: string;
       team: string;
       whyUs: string;
       roadmap: string;
@@ -267,6 +268,50 @@ export interface Translations {
         title: string;
         goal: string;
         tasks: string[];
+      };
+    };
+  };
+
+  // Demo Page Section
+  demo: {
+    title: string;
+    summarize: string;
+    video: {
+      title: string;
+      url: string;
+    };
+    description: {
+      title: string;
+      whatShown: {
+        title: string;
+        items: string[];
+      };
+      problemSolution: {
+        title: string;
+        items: string[];
+      };
+      technologies: {
+        title: string;
+        items: string[];
+      };
+    };
+    api: {
+      title: string;
+      subtitle: string;
+      endpoints: {
+        title: string;
+        items: Array<{
+          method: string;
+          path: string;
+          description: string;
+        }>;
+      };
+      techStack: {
+        title: string;
+        categories: Array<{
+          title: string;
+          items: string[];
+        }>;
       };
     };
   };

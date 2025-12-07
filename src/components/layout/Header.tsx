@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useI18n } from '../../i18n/I18nContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import Logo from '../common/Logo';
@@ -10,22 +11,54 @@ import { motion, AnimatePresence } from 'framer-motion';
  */
 const Header: React.FC = () => {
   const { t } = useI18n();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
 
   const scrollToSection = (sectionId: string): void => {
     setActiveSection(sectionId);
     setIsMobileMenuOpen(false); // Закрываем мобильное меню
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    
+    // Если мы не на главной странице, сначала переходим на главную
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Ждем немного для загрузки страницы, затем скроллим
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
-  // Track scroll position to update active section
+  const handleDemoClick = (): void => {
+    setIsMobileMenuOpen(false);
+    navigate('/demo');
+  };
+
+  const handleLogoClick = (): void => {
+    if (location.pathname !== '/') {
+      navigate('/');
+    } else {
+      scrollToSection('hero');
+    }
+  };
+
+  // Track scroll position to update active section (only on main page)
   useEffect(() => {
+    if (location.pathname !== '/') {
+      return; // Don't track sections on other pages
+    }
+
     const handleScroll = () => {
-      const sections = ['hero', 'problem-solution', 'interactive-demo', 'team', 'why-us', 'roadmap', 'implementation'];
+      const sections = ['hero', 'problem-solution', 'team', 'why-us', 'roadmap', 'implementation'];
       const scrollPosition = window.scrollY + 120; // Offset for header height
 
       let currentActive = 'hero';
@@ -56,7 +89,7 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
-  }, []);
+  }, [location.pathname]);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass-nav shadow-lg">
@@ -66,60 +99,72 @@ const Header: React.FC = () => {
           <div className="flex-shrink-0">
             <Logo 
               variant="default"
-              onClick={() => scrollToSection('hero')}
+              onClick={handleLogoClick}
             />
           </div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-2 lg:space-x-3">
             {[
-              { id: 'problem-solution', label: t.header.nav.problemSolution },
-              { id: 'interactive-demo', label: 'Демо' },
-              { id: 'team', label: t.header.nav.team },
-              { id: 'why-us', label: t.header.nav.whyUs },
-              { id: 'roadmap', label: t.header.nav.roadmap },
-              { id: 'implementation', label: t.header.nav.howWeBuild },
-            ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={`glass-nav-button px-4 lg:px-5 py-2.5 text-sm lg:text-base relative z-10 ${
-                  activeSection === item.id ? 'active' : 'text-white/70'
-                }`}
-              >
-                <AnimatePresence mode="wait">
-                  {activeSection === item.id && (
-                    <motion.div
-                      layoutId="activeNav"
-                      className="absolute inset-0 rounded-xl"
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 0.8 }}
-                      transition={{
-                        type: 'spring',
-                        stiffness: 300,
-                        damping: 25,
-                        opacity: { duration: 0.4, ease: 'easeInOut' },
-                      }}
-                      style={{
-                        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%)',
-                        backdropFilter: 'blur(30px) saturate(200%)',
-                        border: '1px solid rgba(255, 255, 255, 0.3)',
-                        boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2)',
-                      }}
-                    />
-                  )}
-                </AnimatePresence>
-                <span className="relative z-10">{item.label}</span>
-              </button>
-            ))}
+              { id: 'problem-solution', label: t.header.nav.problemSolution, isRoute: false },
+              { id: 'demo', label: t.header.nav.demo, isRoute: true },
+              { id: 'team', label: t.header.nav.team, isRoute: false },
+              { id: 'why-us', label: t.header.nav.whyUs, isRoute: false },
+              { id: 'roadmap', label: t.header.nav.roadmap, isRoute: false },
+              { id: 'implementation', label: t.header.nav.howWeBuild, isRoute: false },
+            ].map((item) => {
+              const isActive = item.isRoute 
+                ? location.pathname === '/demo' 
+                : activeSection === item.id && location.pathname === '/';
+              
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => item.isRoute ? handleDemoClick() : scrollToSection(item.id)}
+                  className={`glass-nav-button px-4 lg:px-5 py-2.5 text-sm lg:text-base relative z-10 ${
+                    isActive ? 'active' : 'text-white/70'
+                  }`}
+                >
+                  <AnimatePresence mode="wait">
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeNav"
+                        className="absolute inset-0 rounded-xl"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 300,
+                          damping: 25,
+                          opacity: { duration: 0.4, ease: 'easeInOut' },
+                        }}
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%)',
+                          backdropFilter: 'blur(30px) saturate(200%)',
+                          border: '1px solid rgba(255, 255, 255, 0.3)',
+                          boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2)',
+                        }}
+                      />
+                    )}
+                  </AnimatePresence>
+                  <span className="relative z-10">{item.label}</span>
+                </button>
+              );
+            })}
           </div>
 
           {/* Language Switcher and CTA Button */}
           <div className="hidden md:flex items-center gap-3">
             <LanguageSwitcher />
             <motion.button
-              onClick={() => scrollToSection('hero')}
+              onClick={() => {
+                if (location.pathname !== '/') {
+                  navigate('/');
+                } else {
+                  scrollToSection('hero');
+                }
+              }}
               className="glass-button px-5 py-2.5 text-sm md:text-base font-medium text-white rounded-2xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.98 }}
@@ -166,46 +211,52 @@ const Header: React.FC = () => {
             >
               <div className="glass-card-strong rounded-3xl mt-4 mb-4 p-4 space-y-2">
                 {[
-                  { id: 'problem-solution', label: t.header.nav.problemSolution },
-                  { id: 'interactive-demo', label: 'Демо' },
-                  { id: 'team', label: t.header.nav.team },
-                  { id: 'why-us', label: t.header.nav.whyUs },
-                  { id: 'roadmap', label: t.header.nav.roadmap },
-                  { id: 'implementation', label: t.header.nav.howWeBuild },
-                ].map((item) => (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`glass-nav-button w-full px-4 py-3 text-base relative z-10 text-left rounded-xl ${
-                      activeSection === item.id ? 'active' : 'text-white/70'
-                    }`}
-                  >
-                    <AnimatePresence mode="wait">
-                      {activeSection === item.id && (
-                        <motion.div
-                          layoutId="activeMobileNav"
-                          className="absolute inset-0 rounded-xl"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.8 }}
-                          transition={{
-                            type: 'spring',
-                            stiffness: 300,
-                            damping: 25,
-                            opacity: { duration: 0.4, ease: 'easeInOut' },
-                          }}
-                          style={{
-                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%)',
-                            backdropFilter: 'blur(30px) saturate(200%)',
-                            border: '1px solid rgba(255, 255, 255, 0.3)',
-                            boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2)',
-                          }}
-                        />
-                      )}
-                    </AnimatePresence>
-                    <span className="relative z-10">{item.label}</span>
-                  </button>
-                ))}
+                  { id: 'problem-solution', label: t.header.nav.problemSolution, isRoute: false },
+                  { id: 'demo', label: t.header.nav.demo, isRoute: true },
+                  { id: 'team', label: t.header.nav.team, isRoute: false },
+                  { id: 'why-us', label: t.header.nav.whyUs, isRoute: false },
+                  { id: 'roadmap', label: t.header.nav.roadmap, isRoute: false },
+                  { id: 'implementation', label: t.header.nav.howWeBuild, isRoute: false },
+                ].map((item) => {
+                  const isActive = item.isRoute 
+                    ? location.pathname === '/demo' 
+                    : activeSection === item.id && location.pathname === '/';
+                  
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => item.isRoute ? handleDemoClick() : scrollToSection(item.id)}
+                      className={`glass-nav-button w-full px-4 py-3 text-base relative z-10 text-left rounded-xl ${
+                        isActive ? 'active' : 'text-white/70'
+                      }`}
+                    >
+                      <AnimatePresence mode="wait">
+                        {isActive && (
+                          <motion.div
+                            layoutId="activeMobileNav"
+                            className="absolute inset-0 rounded-xl"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{
+                              type: 'spring',
+                              stiffness: 300,
+                              damping: 25,
+                              opacity: { duration: 0.4, ease: 'easeInOut' },
+                            }}
+                            style={{
+                              background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.12) 100%)',
+                              backdropFilter: 'blur(30px) saturate(200%)',
+                              border: '1px solid rgba(255, 255, 255, 0.3)',
+                              boxShadow: 'inset 0 1px 0 0 rgba(255, 255, 255, 0.3), inset 0 -1px 0 0 rgba(255, 255, 255, 0.15), 0 2px 8px rgba(0, 0, 0, 0.2)',
+                            }}
+                          />
+                        )}
+                      </AnimatePresence>
+                      <span className="relative z-10">{item.label}</span>
+                    </button>
+                  );
+                })}
               </div>
             </motion.div>
           )}

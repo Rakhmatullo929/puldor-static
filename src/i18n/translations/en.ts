@@ -7,6 +7,7 @@ export const en: Translations = {
   header: {
     nav: {
       problemSolution: 'Problem → Solution',
+      demo: 'Demo',
       team: 'Team',
       whyUs: 'Why us',
       roadmap: 'Roadmap',
@@ -357,6 +358,115 @@ export const en: Translations = {
           'Monitoring and logging',
           'Database query optimization',
           'Preparation for production deployment',
+        ],
+      },
+    },
+  },
+  demo: {
+    title: 'Puldor',
+    summarize:
+      'Puldor is a smart Telegram bot for voice-based expense tracking. Just say how much you spent — AI will understand, categorize, track income, goals, debts, and suggest where you can save.',
+    video: {
+      title: 'Demo Video',
+      url: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+    },
+    description: {
+      title: 'What is shown in the demo',
+      whatShown: {
+        title: 'Key Features',
+        items: [
+          'Voice input of expenses in Russian, Uzbek, and English',
+          'Automatic speech recognition and data extraction (amount, category, currency)',
+          'Transaction creation and expense categorization',
+          'Working with goals and debts',
+          'Analytics and personalized recommendations',
+        ],
+      },
+      problemSolution: {
+        title: 'Connection to problem and solution',
+        items: [
+          'Demonstrates solution to manual data entry problem — user simply speaks',
+          'Shows multilingual support (RU/UZ/EN), solving the mixed language issue in the region',
+          'Automatic categorization eliminates the need to manually select categories',
+          'AI analytics provides personalized advice based on real spending history',
+        ],
+      },
+      technologies: {
+        title: 'Technologies and AI solutions used',
+        items: [
+          'OpenAI Whisper — speech recognition (Speech-to-Text)',
+          'GPT-4.x — intent understanding and structured data extraction',
+          'NLU/NLP — transaction categorization and text analysis',
+          'Telegram Bot API — user interaction interface',
+          'Python (FastAPI/Django) — backend processing and data storage',
+        ],
+      },
+    },
+    api: {
+      title: 'API & Technologies',
+      subtitle: 'RESTful API with AI processing, multi-currency and multilingual support',
+      endpoints: {
+        title: 'Key API Endpoints',
+        items: [
+          {
+            method: 'POST',
+            path: '/api/users/telegram_auth/',
+            description: 'Telegram ID authentication with automatic user creation',
+          },
+          {
+            method: 'POST',
+            path: '/api/finance/expense/',
+            description: 'Create expense with NLP parsing support',
+          },
+          {
+            method: 'POST',
+            path: '/api/ai/parse_voice/',
+            description: 'Process voice messages via Whisper and extract transactions',
+          },
+          {
+            method: 'POST',
+            path: '/api/ai/parse_text/',
+            description: 'NLP parsing of text messages in Russian, Uzbek and English',
+          },
+          {
+            method: 'GET',
+            path: '/api/analytics/overview/',
+            description: 'Overview analytics: balance, income, expenses, goals',
+          },
+          {
+            method: 'GET',
+            path: '/api/analytics/categories/',
+            description: 'Expense analysis by categories with visualization',
+          },
+        ],
+      },
+      techStack: {
+        title: 'Technology Stack',
+        categories: [
+          {
+            title: 'Backend Framework',
+            items: ['Django 5.0.3', 'Django REST Framework 3.15.0', 'Gunicorn 21.2.0'],
+          },
+          {
+            title: 'Database',
+            items: ['PostgreSQL 15', 'Redis 7', 'psycopg2-binary 2.9.9'],
+          },
+          {
+            title: 'AI & Machine Learning',
+            items: ['OpenAI Whisper 20240930', 'Transformers 4.21.0+', 'PyTorch 1.12.0+', 'EasyOCR 1.7.1'],
+          },
+          {
+            title: 'Audio Processing',
+            items: ['librosa 0.10.1', 'soundfile 0.12.1', 'ffmpeg-python 0.2.0', 'pydub 0.25.1'],
+          },
+          {
+            title: 'Telegram Bot',
+            items: ['python-telegram-bot 21.7', 'aiogram 3.4.1', 'aiohttp 3.9.3'],
+          },
+          {
+            title: 'Authentication',
+            items: ['djangorestframework-simplejwt 5.3.0'],
+          },
         ],
       },
     },

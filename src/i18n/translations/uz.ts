@@ -7,6 +7,7 @@ export const uz: Translations = {
   header: {
     nav: {
       problemSolution: 'Muammo → Yechim',
+      demo: 'Demo',
       team: 'Jamoa',
       whyUs: 'Nima uchun biz',
       roadmap: 'Yo\'l xaritasi',
@@ -357,6 +358,115 @@ export const uz: Translations = {
           'Monitoring va loglashtirish',
           'Ma\'lumotlar bazasi so\'rovlarini optimallashtirish',
           'Ishlab chiqarishga joylashtirishga tayyorgarlik',
+        ],
+      },
+    },
+  },
+  demo: {
+    title: 'Puldor',
+    summarize:
+      'Puldor — ovoz orqali xarajatlarni hisobga olish uchun aqlli Telegram bot. Faqat qancha sarflaganingizni ayting — AI tushunadi, toifalarga ajratadi, daromad, maqsadlar, qarzlarni kuzatadi va qayerda tejash mumkinligini taklif qiladi.',
+    video: {
+      title: 'Demo video',
+      url: 'https://www.youtube.com/embed/YOUR_VIDEO_ID',
+    },
+    description: {
+      title: 'Demo\'da nima ko\'rsatiladi',
+      whatShown: {
+        title: 'Asosiy funksiyalar',
+        items: [
+          'Rus, o\'zbek va ingliz tillarida ovozli xarajatlar kiritish',
+          'Avtomatik nutqni tanib olish va ma\'lumotlarni ajratib olish (summa, toifa, valyuta)',
+          'Tranzaksiyalar yaratish va xarajatlarni toifalarga ajratish',
+          'Maqsadlar va qarzlar bilan ishlash',
+          'Analitika va shaxsiy tavsiyalar',
+        ],
+      },
+      problemSolution: {
+        title: 'Muammo va yechim bilan bog\'liqlik',
+        items: [
+          'Qo\'lda ma\'lumot kiritish muammosining yechimi ko\'rsatiladi — foydalanuvchi shunchaki gapiradi',
+          'Ko\'p tillilikni qo\'llab-quvvatlash (RU/UZ/EN) ko\'rsatiladi, bu mintaqadagi aralash til muammosini hal qiladi',
+          'Avtomatik toifalarga ajratish toifalarni qo\'lda tanlash zaruratini bartaraf etadi',
+          'AI-analitika haqiqiy xarajatlar tarixiga asoslangan shaxsiy tavsiyalar beradi',
+        ],
+      },
+      technologies: {
+        title: 'Ishlatilgan texnologiyalar va AI yechimlari',
+        items: [
+          'OpenAI Whisper — nutqni tanib olish (Speech-to-Text)',
+          'GPT-4.x — niyatni tushunish va strukturalangan ma\'lumotlarni ajratib olish',
+          'NLU/NLP — tranzaksiyalarni toifalarga ajratish va matnni tahlil qilish',
+          'Telegram Bot API — foydalanuvchi bilan o\'zaro aloqa interfeysi',
+          'Python (FastAPI/Django) — backend qayta ishlash va ma\'lumotlarni saqlash',
+        ],
+      },
+    },
+    api: {
+      title: 'API va Texnologiyalar',
+      subtitle: 'AI qayta ishlash, ko\'p valyuta va ko\'p tillilikni qo\'llab-quvvatlovchi RESTful API',
+      endpoints: {
+        title: 'Asosiy API Endpoints',
+        items: [
+          {
+            method: 'POST',
+            path: '/api/users/telegram_auth/',
+            description: 'Telegram ID orqali autentifikatsiya, avtomatik foydalanuvchi yaratish',
+          },
+          {
+            method: 'POST',
+            path: '/api/finance/expense/',
+            description: 'NLP parsing qo\'llab-quvvatlash bilan xarajat yaratish',
+          },
+          {
+            method: 'POST',
+            path: '/api/ai/parse_voice/',
+            description: 'Whisper orqali ovozli xabarlarni qayta ishlash va tranzaksiyalarni ajratish',
+          },
+          {
+            method: 'POST',
+            path: '/api/ai/parse_text/',
+            description: 'Rus, o\'zbek va ingliz tillarida matnli xabarlarni NLP parsing',
+          },
+          {
+            method: 'GET',
+            path: '/api/analytics/overview/',
+            description: 'Umumiy analitika: balans, daromad, xarajatlar, maqsadlar',
+          },
+          {
+            method: 'GET',
+            path: '/api/analytics/categories/',
+            description: 'Toifalar bo\'yicha xarajatlar tahlili, vizualizatsiya bilan',
+          },
+        ],
+      },
+      techStack: {
+        title: 'Texnologik stack',
+        categories: [
+          {
+            title: 'Backend Framework',
+            items: ['Django 5.0.3', 'Django REST Framework 3.15.0', 'Gunicorn 21.2.0'],
+          },
+          {
+            title: 'Ma\'lumotlar bazasi',
+            items: ['PostgreSQL 15', 'Redis 7', 'psycopg2-binary 2.9.9'],
+          },
+          {
+            title: 'AI va Machine Learning',
+            items: ['OpenAI Whisper 20240930', 'Transformers 4.21.0+', 'PyTorch 1.12.0+', 'EasyOCR 1.7.1'],
+          },
+          {
+            title: 'Audio qayta ishlash',
+            items: ['librosa 0.10.1', 'soundfile 0.12.1', 'ffmpeg-python 0.2.0', 'pydub 0.25.1'],
+          },
+          {
+            title: 'Telegram Bot',
+            items: ['python-telegram-bot 21.7', 'aiogram 3.4.1', 'aiohttp 3.9.3'],
+          },
+          {
+            title: 'Autentifikatsiya',
+            items: ['djangorestframework-simplejwt 5.3.0'],
+          },
         ],
       },
     },

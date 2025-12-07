@@ -7,6 +7,7 @@ export const ru: Translations = {
   header: {
     nav: {
       problemSolution: "Проблема → Решение",
+      demo: "Демо",
       team: "Команда",
       whyUs: "Почему мы",
       roadmap: "Дорожная карта",
@@ -361,6 +362,120 @@ export const ru: Translations = {
           "Мониторинг и логирование",
           "Оптимизация запросов к БД",
           "Подготовка к production-развёртыванию",
+        ],
+      },
+    },
+  },
+  demo: {
+    title: "Puldor",
+    summarize:
+      "Puldor — умный Telegram-бот для учёта расходов через голос. Просто скажи, сколько потратил — AI сам поймёт, разложит по категориям, учтёт доходы, цели, долги и подскажет, где ты можешь экономить.",
+    video: {
+      title: "Демо-запись",
+      url: "https://www.youtube.com/embed/YOUR_VIDEO_ID",
+    },
+    description: {
+      title: "Что показано в демо",
+      whatShown: {
+        title: "Ключевые функции",
+        items: [
+          "Голосовой ввод расходов на русском, узбекском и английском языках",
+          "Автоматическое распознавание речи и извлечение данных (сумма, категория, валюта)",
+          "Создание транзакций и категоризация расходов",
+          "Работа с целями и долгами",
+          "Аналитика и персональные рекомендации",
+        ],
+      },
+      problemSolution: {
+        title: "Связь с проблемой и решением",
+        items: [
+          "Демонстрируется решение проблемы ручного ввода данных — пользователь просто говорит голосом",
+          "Показывается поддержка мультиязычности (RU/UZ/EN), что решает проблему смешанных языков в регионе",
+          "Автоматическая категоризация устраняет необходимость вручную выбирать категории",
+          "AI-аналитика предоставляет персональные советы на основе реальной истории трат",
+        ],
+      },
+      technologies: {
+        title: "Используемые технологии и AI-решения",
+        items: [
+          "OpenAI Whisper — распознавание речи (Speech-to-Text)",
+          "GPT-4.x — понимание intent и извлечение структурированных данных",
+          "NLU/NLP — категоризация транзакций и анализ текста",
+          "Telegram Bot API — интерфейс взаимодействия с пользователем",
+          "Python (FastAPI/Django) — backend обработка и хранение данных",
+        ],
+      },
+    },
+    api: {
+      title: "API и Технологии",
+      subtitle: "RESTful API с поддержкой AI-обработки, мультивалютности и многоязычности",
+      endpoints: {
+        title: "Ключевые API Endpoints",
+        items: [
+          {
+            method: "POST",
+            path: "/api/users/telegram_auth/",
+            description: "Аутентификация через Telegram ID с автоматическим созданием пользователя",
+          },
+          {
+            method: "POST",
+            path: "/api/finance/expense/",
+            description: "Создание расхода с поддержкой NLP-парсинга описания",
+          },
+          {
+            method: "POST",
+            path: "/api/ai/parse_voice/",
+            description: "Обработка голосовых сообщений через Whisper и извлечение транзакций",
+          },
+          {
+            method: "POST",
+            path: "/api/ai/parse_text/",
+            description: "NLP-парсинг текстовых сообщений на русском, узбекском и английском",
+          },
+          {
+            method: "GET",
+            path: "/api/analytics/overview/",
+            description: "Общая аналитика: баланс, доходы, расходы, цели",
+          },
+          {
+            method: "GET",
+            path: "/api/analytics/categories/",
+            description: "Анализ расходов по категориям с визуализацией",
+          },
+        ],
+      },
+      techStack: {
+        title: "Технологический стек",
+        categories: [
+          {
+            title: "Backend Framework",
+            items: ["Django 5.0.3", "Django REST Framework 3.15.0", "Gunicorn 21.2.0"],
+          },
+          {
+            title: "База данных",
+            items: ["PostgreSQL 15", "Redis 7", "psycopg2-binary 2.9.9"],
+          },
+          {
+            title: "AI & Machine Learning",
+            items: [
+              "OpenAI Whisper 20240930",
+              "Transformers 4.21.0+",
+              "PyTorch 1.12.0+",
+              "EasyOCR 1.7.1",
+            ],
+          },
+          {
+            title: "Обработка аудио",
+            items: ["librosa 0.10.1", "soundfile 0.12.1", "ffmpeg-python 0.2.0", "pydub 0.25.1"],
+          },
+          {
+            title: "Telegram Bot",
+            items: ["python-telegram-bot 21.7", "aiogram 3.4.1", "aiohttp 3.9.3"],
+          },
+          {
+            title: "Аутентификация",
+            items: ["djangorestframework-simplejwt 5.3.0"],
+          },
         ],
       },
     },
