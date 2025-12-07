@@ -3,6 +3,7 @@ import Layout from '../components/layout/Layout';
 import { useI18n } from '../i18n/I18nContext';
 import Logo from '../components/common/Logo';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import demoVideo from '../assets/video/IMG_3583.MP4?url';
 
 /**
  * Demo page component for AI500 Stage 2.
@@ -45,13 +46,15 @@ const DemoPage: React.FC = () => {
 
             <div className="relative glass-card-strong rounded-3xl p-4 md:p-8 overflow-hidden">
               <div className="relative aspect-video w-full rounded-2xl overflow-hidden bg-black/20">
-                <iframe
-                  className="w-full h-full"
-                  src={t.demo.video.url}
-                  title={t.demo.video.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                <video
+                  className="w-full h-full object-contain rounded-2xl"
+                  controls
+                  preload="metadata"
+                  playsInline
+                >
+                  <source src={demoVideo} type="video/mp4" />
+                  Ваш браузер не поддерживает воспроизведение видео.
+                </video>
               </div>
             </div>
           </div>

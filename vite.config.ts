@@ -12,5 +12,7 @@ export default defineConfig({
       },
     },
   },
+  // Добавляем поддержку MP4 файлов как ассетов
+  assetsInclude: ['**/*.MP4', '**/*.mp4'],
 })
 
